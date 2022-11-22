@@ -1,0 +1,617 @@
+\documentclass{standalone}
+\usepackage{pgfplots}
+\usepackage{filecontents}
+\usepackage{pgfplotstable}
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{scaled x ticks=false}
+
+\pgfplotsset{width=6.5ccm, compat=1.6}
+
+\begin{document}
+	
+	\begin{tikzpicture}
+	
+		\begin{groupplot}[
+		    group style={
+		        group size=12 by 3,
+		        horizontal sep = 0.65 cm, 
+				vertical sep = 1 cm,
+            }, 
+			legend columns=-1,
+			legend style={
+				cells={anchor=west},
+				legend pos=south east,
+				legend style={font=\tiny},
+				at={(6.75,1.25)}
+			},
+% 			xlabel={configuration},
+			every axis plot/.append style={thick},
+			xmajorgrids, ymajorgrids,
+			width=5.5cm, height=4.5cm,
+			xtick={0, 1, 2, 3, 4, 5, 6, 7},
+			ytick={0, 50, ..., 750},
+			xticklabels={$10$, $15$, $20$, $25$,$50$,$100$,$150$,$200$},
+			y label style={at={(-0.15,0.5)}},
+			x label style={at={(0.5,-0.065)}},
+            xmin=0, xmax=8, ymin=0.18, ymax=751,
+		]
+		
+		
+		
+		\nextgroupplot[
+		    ylabel={reward},
+		    title style={yshift=-2ex},
+			title={$h=10, E=2.5, S=16 $},
+		    enlarge x limits={abs=1},
+		]
+			
+
+		\addplot +[ red, solid, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=rseo, y error=rseo_conf, col sep=comma]{reward/csv_t0_h10_en2500000_st16000.csv};
+		\addlegendentry{\textsc{rseo}}
+		\addplot +[cyan, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mre, y error=mre_conf, col sep=comma]{reward/csv_t0_h10_en2500000_st16000.csv};
+		\addlegendentry{\textsc{mre}}
+		\addplot +[ magenta, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mrs, y error=mrs_conf, col sep=comma]{reward/csv_t0_h10_en2500000_st16000.csv};
+		\addlegendentry{\textsc{mrs}}
+
+		
+		
+		\nextgroupplot[
+		    title style={yshift=-2ex},
+		    yticklabels={,,},
+			title={$h=20, E=2.5, S=16 $},
+		]
+		\addplot +[ red, solid, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=rseo, y error=rseo_conf, col sep=comma]{reward/csv_t0_h20_en2500000_st16000.csv};
+		\addplot +[cyan, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mre, y error=mre_conf, col sep=comma]{reward/csv_t0_h20_en2500000_st16000.csv};
+		\addplot +[ magenta, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mrs, y error=mrs_conf, col sep=comma]{reward/csv_t0_h20_en2500000_st16000.csv};
+
+			
+
+
+        \nextgroupplot[
+		    title style={yshift=-2ex},
+		    yticklabels={,,},
+			title={$h=10, E=5, S=16 $},
+		]
+		\addplot +[ red, solid, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=rseo, y error=rseo_conf, col sep=comma]{reward/csv_t0_h10_en5000000_st16000.csv};
+		\addplot +[cyan, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mre, y error=mre_conf, col sep=comma]{reward/csv_t0_h10_en5000000_st16000.csv};
+		\addplot +[ magenta, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mrs, y error=mrs_conf, col sep=comma]{reward/csv_t0_h10_en5000000_st16000.csv};
+
+
+
+
+        \nextgroupplot[
+		    title style={yshift=-2ex},
+		    yticklabels={,,},
+			title={$h=20, E=5, S=16 $},
+		]
+		\addplot +[ red, solid, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=rseo, y error=rseo_conf, col sep=comma]{reward/csv_t0_h20_en5000000_st16000.csv};
+		\addplot +[cyan, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mre, y error=mre_conf, col sep=comma]{reward/csv_t0_h20_en5000000_st16000.csv};
+		\addplot +[ magenta, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mrs, y error=mrs_conf, col sep=comma]{reward/csv_t0_h20_en5000000_st16000.csv};
+
+			
+			
+			
+			
+		\nextgroupplot[
+		    title style={yshift=-2ex},
+		    %ylabel={ratio},
+			title={$h=10, E=10, S=16 $},
+		]
+		\addplot +[ red, solid, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=rseo, y error=rseo_conf, col sep=comma]{reward/csv_t0_h10_en10000000_st16000.csv};
+		\addplot +[cyan, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mre, y error=mre_conf, col sep=comma]{reward/csv_t0_h10_en10000000_st16000.csv};
+		\addplot +[ magenta, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mrs, y error=mrs_conf, col sep=comma]{reward/csv_t0_h10_en10000000_st16000.csv};
+
+		
+		\nextgroupplot[
+		    title style={yshift=-2ex},
+		    yticklabels={,,},
+			title={$h=20, E=10, S=16 $},
+		]
+		\addplot +[ red, solid, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=rseo, y error=rseo_conf, col sep=comma]{reward/csv_t0_h20_en10000000_st16000.csv};
+		\addplot +[cyan, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mre, y error=mre_conf, col sep=comma]{reward/csv_t0_h20_en10000000_st16000.csv};
+		\addplot +[ magenta, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mrs, y error=mrs_conf, col sep=comma]{reward/csv_t0_h20_en10000000_st16000.csv};
+
+			
+
+
+        \nextgroupplot[
+		    title style={yshift=-2ex},
+		    yticklabels={,,},
+			title={$h=10, E=2.5, S=32 $},
+		]
+		\addplot +[ red, solid, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=rseo, y error=rseo_conf, col sep=comma]{reward/csv_t0_h10_en2500000_st32000.csv};
+		\addplot +[cyan, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mre, y error=mre_conf, col sep=comma]{reward/csv_t0_h10_en2500000_st32000.csv};
+		\addplot +[ magenta, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mrs, y error=mrs_conf, col sep=comma]{reward/csv_t0_h10_en2500000_st32000.csv};
+
+
+
+
+
+        \nextgroupplot[
+		    title style={yshift=-2ex},
+		    yticklabels={,,},
+			title={$h=20, E=2.5, S=32 $},
+		]
+		\addplot +[ red, solid, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=rseo, y error=rseo_conf, col sep=comma]{reward/csv_t0_h20_en2500000_st32000.csv};
+		\addplot +[cyan, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mre, y error=mre_conf, col sep=comma]{reward/csv_t0_h20_en2500000_st32000.csv};
+		\addplot +[ magenta, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mrs, y error=mrs_conf, col sep=comma]{reward/csv_t0_h20_en2500000_st32000.csv};
+
+			
+			
+		
+		
+		\nextgroupplot[
+		    title style={yshift=-2ex},
+		    %ylabel={ratio},
+		    %xlabel={configuration},
+		    x label style={at={(0.5,-0.1)}},
+			title={$h=10, E=5, S=32 $},
+		]
+		\addplot +[ red, solid, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=rseo, y error=rseo_conf, col sep=comma]{reward/csv_t0_h10_en5000000_st32000.csv};
+		\addplot +[cyan, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mre, y error=mre_conf, col sep=comma]{reward/csv_t0_h10_en5000000_st32000.csv};
+		\addplot +[ magenta, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mrs, y error=mrs_conf, col sep=comma]{reward/csv_t0_h10_en5000000_st32000.csv};
+
+
+		
+		\nextgroupplot[
+		    title style={yshift=-2ex},
+		    %xlabel={configuration},
+		    %yticklabels={,,},
+		    x label style={at={(0.5,-0.1)}},
+			title={$h=20, E=5, S=32 $},
+		]
+		\addplot +[ red, solid, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=rseo, y error=rseo_conf, col sep=comma]{reward/csv_t0_h20_en5000000_st32000.csv};
+		\addplot +[cyan, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mre, y error=mre_conf, col sep=comma]{reward/csv_t0_h20_en5000000_st32000.csv};
+		\addplot +[ magenta, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mrs, y error=mrs_conf, col sep=comma]{reward/csv_t0_h20_en5000000_st32000.csv};
+
+
+
+        \nextgroupplot[
+		    title style={yshift=-2ex},
+		    %xlabel={configuration},
+		    %yticklabels={,,},
+		    x label style={at={(0.5,-0.1)}},
+			title={$h=10, E=10, S=32 $},
+		]
+		\addplot +[ red, solid, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=rseo, y error=rseo_conf, col sep=comma]{reward/csv_t0_h10_en10000000_st32000.csv};
+		\addplot +[cyan, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mre, y error=mre_conf, col sep=comma]{reward/csv_t0_h10_en10000000_st32000.csv};
+		\addplot +[ magenta, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mrs, y error=mrs_conf, col sep=comma]{reward/csv_t0_h10_en10000000_st32000.csv};
+
+
+
+
+
+        \nextgroupplot[
+		    title style={yshift=-2ex},
+		    %xlabel={configuration},
+		    yticklabels={,,},
+		    x label style={at={(0.5,-0.1)}},
+			title={$h=20, E=10, S=32 $},
+		]
+		\addplot +[ red, solid, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=rseo, y error=rseo_conf, col sep=comma]{reward/csv_t0_h20_en10000000_st32000.csv};
+		\addplot +[cyan, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mre, y error=mre_conf, col sep=comma]{reward/csv_t0_h20_en10000000_st32000.csv};
+		\addplot +[ magenta, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mrs, y error=mrs_conf, col sep=comma]{reward/csv_t0_h20_en10000000_st32000.csv};
+
+		
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% second row %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\nextgroupplot[
+		    ylabel={reward},
+		    title style={yshift=-2ex},
+			title={$h=10, E=2.5, S=16 $},
+		    enlarge x limits={abs=1},
+		]
+			
+
+		\addplot +[ red, solid, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=rseo, y error=rseo_conf, col sep=comma]{reward/csv_t0.8_h10_en2500000_st16000.csv};
+		\addplot +[cyan, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mre, y error=mre_conf, col sep=comma]{reward/csv_t0.8_h10_en2500000_st16000.csv};
+		\addplot +[ magenta, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mrs, y error=mrs_conf, col sep=comma]{reward/csv_t0.8_h10_en2500000_st16000.csv};
+
+
+		
+		
+		\nextgroupplot[
+		    title style={yshift=-2ex},
+		    yticklabels={,,},
+			title={$h=20, E=2.5, S=16 $},
+		]
+		\addplot +[ red, solid, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=rseo, y error=rseo_conf, col sep=comma]{reward/csv_t0.8_h20_en2500000_st16000.csv};
+		\addplot +[cyan, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mre, y error=mre_conf, col sep=comma]{reward/csv_t0.8_h20_en2500000_st16000.csv};
+		\addplot +[ magenta, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mrs, y error=mrs_conf, col sep=comma]{reward/csv_t0.8_h20_en2500000_st16000.csv};
+
+			
+
+
+        \nextgroupplot[
+		    title style={yshift=-2ex},
+		    yticklabels={,,},
+			title={$h=10, E=5, S=16 $},
+		]
+		\addplot +[ red, solid, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=rseo, y error=rseo_conf, col sep=comma]{reward/csv_t0.8_h10_en5000000_st16000.csv};
+		\addplot +[cyan, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mre, y error=mre_conf, col sep=comma]{reward/csv_t0.8_h10_en5000000_st16000.csv};
+		\addplot +[ magenta, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mrs, y error=mrs_conf, col sep=comma]{reward/csv_t0.8_h10_en5000000_st16000.csv};
+
+
+
+
+        \nextgroupplot[
+		    title style={yshift=-2ex},
+		    yticklabels={,,},
+			title={$h=20, E=5, S=16 $},
+		]
+		\addplot +[ red, solid, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=rseo, y error=rseo_conf, col sep=comma]{reward/csv_t0.8_h20_en5000000_st16000.csv};
+		\addplot +[cyan, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mre, y error=mre_conf, col sep=comma]{reward/csv_t0.8_h20_en5000000_st16000.csv};
+		\addplot +[ magenta, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mrs, y error=mrs_conf, col sep=comma]{reward/csv_t0.8_h20_en5000000_st16000.csv};
+
+			
+			
+			
+			
+		\nextgroupplot[
+		    title style={yshift=-2ex},
+		    %ylabel={ratio},
+			title={$h=10, E=10, S=16 $},
+		]
+		\addplot +[ red, solid, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=rseo, y error=rseo_conf, col sep=comma]{reward/csv_t0.8_h10_en10000000_st16000.csv};
+		\addplot +[cyan, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mre, y error=mre_conf, col sep=comma]{reward/csv_t0.8_h10_en10000000_st16000.csv};
+		\addplot +[ magenta, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mrs, y error=mrs_conf, col sep=comma]{reward/csv_t0.8_h10_en10000000_st16000.csv};
+
+		
+		\nextgroupplot[
+		    title style={yshift=-2ex},
+		    yticklabels={,,},
+			title={$h=20, E=10, S=16 $},
+		]
+		\addplot +[ red, solid, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=rseo, y error=rseo_conf, col sep=comma]{reward/csv_t0.8_h20_en10000000_st16000.csv};
+		\addplot +[cyan, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mre, y error=mre_conf, col sep=comma]{reward/csv_t0.8_h20_en10000000_st16000.csv};
+		\addplot +[ magenta, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mrs, y error=mrs_conf, col sep=comma]{reward/csv_t0.8_h20_en10000000_st16000.csv};
+
+			
+
+
+        \nextgroupplot[
+		    title style={yshift=-2ex},
+		    yticklabels={,,},
+			title={$h=10, E=2.5, S=32 $},
+		]
+		\addplot +[ red, solid, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=rseo, y error=rseo_conf, col sep=comma]{reward/csv_t0.8_h10_en2500000_st32000.csv};
+		\addplot +[cyan, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mre, y error=mre_conf, col sep=comma]{reward/csv_t0.8_h10_en2500000_st32000.csv};
+		\addplot +[ magenta, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mrs, y error=mrs_conf, col sep=comma]{reward/csv_t0.8_h10_en2500000_st32000.csv};
+
+
+
+
+
+        \nextgroupplot[
+		    title style={yshift=-2ex},
+		    yticklabels={,,},
+			title={$h=20, E=2.5, S=32 $},
+		]
+		\addplot +[ red, solid, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=rseo, y error=rseo_conf, col sep=comma]{reward/csv_t0.8_h20_en2500000_st32000.csv};
+		\addplot +[cyan, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mre, y error=mre_conf, col sep=comma]{reward/csv_t0.8_h20_en2500000_st32000.csv};
+		\addplot +[ magenta, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mrs, y error=mrs_conf, col sep=comma]{reward/csv_t0.8_h20_en2500000_st32000.csv};
+
+			
+			
+		
+		
+		\nextgroupplot[
+		    title style={yshift=-2ex},
+		    %ylabel={ratio},
+		    %xlabel={configuration},
+		    x label style={at={(0.5,-0.1)}},
+			title={$h=10, E=5, S=32 $},
+		]
+		\addplot +[ red, solid, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=rseo, y error=rseo_conf, col sep=comma]{reward/csv_t0.8_h10_en5000000_st32000.csv};
+		\addplot +[cyan, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mre, y error=mre_conf, col sep=comma]{reward/csv_t0.8_h10_en5000000_st32000.csv};
+		\addplot +[ magenta, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mrs, y error=mrs_conf, col sep=comma]{reward/csv_t0.8_h10_en5000000_st32000.csv};
+
+
+		
+		\nextgroupplot[
+		    title style={yshift=-2ex},
+		    %xlabel={configuration},
+		    %yticklabels={,,},
+		    x label style={at={(0.5,-0.1)}},
+			title={$h=20, E=5, S=32 $},
+		]
+		\addplot +[ red, solid, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=rseo, y error=rseo_conf, col sep=comma]{reward/csv_t0.8_h20_en5000000_st32000.csv};
+		\addplot +[cyan, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mre, y error=mre_conf, col sep=comma]{reward/csv_t0.8_h20_en5000000_st32000.csv};
+		\addplot +[ magenta, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mrs, y error=mrs_conf, col sep=comma]{reward/csv_t0.8_h20_en5000000_st32000.csv};
+
+			
+
+
+        \nextgroupplot[
+		    title style={yshift=-2ex},
+		    %xlabel={configuration},
+		    %yticklabels={,,},
+		    x label style={at={(0.5,-0.1)}},
+			title={$h=10, E=10, S=32 $},
+		]
+		\addplot +[ red, solid, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=rseo, y error=rseo_conf, col sep=comma]{reward/csv_t0.8_h10_en10000000_st32000.csv};
+		\addplot +[cyan, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mre, y error=mre_conf, col sep=comma]{reward/csv_t0.8_h10_en10000000_st32000.csv};
+		\addplot +[ magenta, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mrs, y error=mrs_conf, col sep=comma]{reward/csv_t0.8_h10_en10000000_st32000.csv};
+
+
+
+
+
+        \nextgroupplot[
+		    title style={yshift=-2ex},
+		    %xlabel={configuration},
+		    yticklabels={,,},
+		    x label style={at={(0.5,-0.1)}},
+			title={$h=20, E=10, S=32 $},
+		]
+		\addplot +[ red, solid, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=rseo, y error=rseo_conf, col sep=comma]{reward/csv_t0.8_h20_en10000000_st32000.csv};
+		\addplot +[cyan, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mre, y error=mre_conf, col sep=comma]{reward/csv_t0.8_h20_en10000000_st32000.csv};
+		\addplot +[ magenta, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mrs, y error=mrs_conf, col sep=comma]{reward/csv_t0.8_h20_en10000000_st32000.csv};
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% thrid row %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\nextgroupplot[
+		    ylabel={reward},
+		    title style={yshift=-2ex},
+			title={$h=10, E=2.5, S=16 $},
+		    enlarge x limits={abs=1},
+		]
+			
+
+		\addplot +[ red, solid, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=rseo, y error=rseo_conf, col sep=comma]{reward/csv_t1.7_h10_en2500000_st16000.csv};
+		\addplot +[cyan, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mre, y error=mre_conf, col sep=comma]{reward/csv_t1.7_h10_en2500000_st16000.csv};
+		\addplot +[ magenta, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mrs, y error=mrs_conf, col sep=comma]{reward/csv_t1.7_h10_en2500000_st16000.csv};
+
+
+		
+		
+		\nextgroupplot[
+		    title style={yshift=-2ex},
+		    yticklabels={,,},
+			title={$h=20, E=2.5, S=16 $},
+		]
+		\addplot +[ red, solid, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=rseo, y error=rseo_conf, col sep=comma]{reward/csv_t1.7_h20_en2500000_st16000.csv};
+		\addplot +[cyan, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mre, y error=mre_conf, col sep=comma]{reward/csv_t1.7_h20_en2500000_st16000.csv};
+		\addplot +[ magenta, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mrs, y error=mrs_conf, col sep=comma]{reward/csv_t1.7_h20_en2500000_st16000.csv};
+
+			
+
+
+        \nextgroupplot[
+		    title style={yshift=-2ex},
+		    yticklabels={,,},
+			title={$h=10, E=5, S=16 $},
+		]
+		\addplot +[ red, solid, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=rseo, y error=rseo_conf, col sep=comma]{reward/csv_t1.7_h10_en5000000_st16000.csv};
+		\addplot +[cyan, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mre, y error=mre_conf, col sep=comma]{reward/csv_t1.7_h10_en5000000_st16000.csv};
+		\addplot +[ magenta, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mrs, y error=mrs_conf, col sep=comma]{reward/csv_t1.7_h10_en5000000_st16000.csv};
+
+
+
+
+        \nextgroupplot[
+		    title style={yshift=-2ex},
+		    yticklabels={,,},
+			title={$h=20, E=5, S=16 $},
+		]
+		\addplot +[ red, solid, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=rseo, y error=rseo_conf, col sep=comma]{reward/csv_t1.7_h20_en5000000_st16000.csv};
+		\addplot +[cyan, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mre, y error=mre_conf, col sep=comma]{reward/csv_t1.7_h20_en5000000_st16000.csv};
+		\addplot +[ magenta, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mrs, y error=mrs_conf, col sep=comma]{reward/csv_t1.7_h20_en5000000_st16000.csv};
+
+			
+			
+			
+			
+		\nextgroupplot[
+		    title style={yshift=-2ex},
+		    %ylabel={ratio},
+			title={$h=10, E=10, S=16 $},
+		]
+		\addplot +[ red, solid, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=rseo, y error=rseo_conf, col sep=comma]{reward/csv_t1.7_h10_en10000000_st16000.csv};
+		\addplot +[cyan, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mre, y error=mre_conf, col sep=comma]{reward/csv_t1.7_h10_en10000000_st16000.csv};
+		\addplot +[ magenta, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mrs, y error=mrs_conf, col sep=comma]{reward/csv_t1.7_h10_en10000000_st16000.csv};
+
+		
+		\nextgroupplot[
+		    title style={yshift=-2ex},
+		    yticklabels={,,},
+			title={$h=20, E=10, S=16 $},
+		]
+		\addplot +[ red, solid, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=rseo, y error=rseo_conf, col sep=comma]{reward/csv_t1.7_h20_en10000000_st16000.csv};
+		\addplot +[cyan, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mre, y error=mre_conf, col sep=comma]{reward/csv_t1.7_h20_en10000000_st16000.csv};
+		\addplot +[ magenta, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mrs, y error=mrs_conf, col sep=comma]{reward/csv_t1.7_h20_en10000000_st16000.csv};
+
+			
+
+
+        \nextgroupplot[
+		    title style={yshift=-2ex},
+		    yticklabels={,,},
+			title={$h=10, E=2.5, S=32 $},
+		]
+		\addplot +[ red, solid, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=rseo, y error=rseo_conf, col sep=comma]{reward/csv_t1.7_h10_en2500000_st32000.csv};
+		\addplot +[cyan, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mre, y error=mre_conf, col sep=comma]{reward/csv_t1.7_h10_en2500000_st32000.csv};
+		\addplot +[ magenta, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mrs, y error=mrs_conf, col sep=comma]{reward/csv_t1.7_h10_en2500000_st32000.csv};
+
+
+
+
+
+        \nextgroupplot[
+		    title style={yshift=-2ex},
+		    yticklabels={,,},
+			title={$h=20, E=2.5, S=32 $},
+		]
+		\addplot +[ red, solid, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=rseo, y error=rseo_conf, col sep=comma]{reward/csv_t1.7_h20_en2500000_st32000.csv};
+		\addplot +[cyan, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mre, y error=mre_conf, col sep=comma]{reward/csv_t1.7_h20_en2500000_st32000.csv};
+		\addplot +[ magenta, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mrs, y error=mrs_conf, col sep=comma]{reward/csv_t1.7_h20_en2500000_st32000.csv};
+
+			
+			
+		
+		
+		\nextgroupplot[
+		    title style={yshift=-2ex},
+		    %ylabel={ratio},
+		    %xlabel={configuration},
+		    x label style={at={(0.5,-0.1)}},
+			title={$h=10, E=5, S=32 $},
+		]
+		\addplot +[ red, solid, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=rseo, y error=rseo_conf, col sep=comma]{reward/csv_t1.7_h10_en5000000_st32000.csv};
+		\addplot +[cyan, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mre, y error=mre_conf, col sep=comma]{reward/csv_t1.7_h10_en5000000_st32000.csv};
+		\addplot +[ magenta, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mrs, y error=mrs_conf, col sep=comma]{reward/csv_t1.7_h10_en5000000_st32000.csv};
+
+
+		
+		\nextgroupplot[
+		    title style={yshift=-2ex},
+		    %xlabel={configuration},
+		    %yticklabels={,,},
+		    x label style={at={(0.5,-0.1)}},
+			title={$h=20, E=5, S=32 $},
+		]
+		\addplot +[ red, solid, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=rseo, y error=rseo_conf, col sep=comma]{reward/csv_t1.7_h20_en5000000_st32000.csv};
+		\addplot +[cyan, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mre, y error=mre_conf, col sep=comma]{reward/csv_t1.7_h20_en5000000_st32000.csv};
+		\addplot +[ magenta, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mrs, y error=mrs_conf, col sep=comma]{reward/csv_t1.7_h20_en5000000_st32000.csv};
+
+			
+
+
+        \nextgroupplot[
+		    title style={yshift=-2ex},
+		    %xlabel={configuration},
+		    %yticklabels={,,},
+		    x label style={at={(0.5,-0.1)}},
+			title={$h=10, E=10, S=32 $},
+		]
+		\addplot +[ red, solid, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=rseo, y error=rseo_conf, col sep=comma]{reward/csv_t1.7_h10_en10000000_st32000.csv};
+		\addplot +[cyan, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mre, y error=mre_conf, col sep=comma]{reward/csv_t1.7_h10_en10000000_st32000.csv};
+		\addplot +[ magenta, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mrs, y error=mrs_conf, col sep=comma]{reward/csv_t1.7_h10_en10000000_st32000.csv};
+
+
+
+
+
+        \nextgroupplot[
+		    title style={yshift=-2ex},
+		    %xlabel={configuration},
+		    yticklabels={,,},
+		    x label style={at={(0.5,-0.1)}},
+			title={$h=20, E=10, S=32 $},
+		]
+		\addplot +[ red, solid, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=rseo, y error=rseo_conf, col sep=comma]{reward/csv_t1.7_h20_en10000000_st32000.csv};
+		\addplot +[cyan, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mre, y error=mre_conf, col sep=comma]{reward/csv_t1.7_h20_en10000000_st32000.csv};
+		\addplot +[ magenta, dashed, mark options={scale=0.75}, smooth, error bars/.cd, y fixed, y dir=both, y explicit] 
+			table[x=x, y=mrs, y error=mrs_conf, col sep=comma]{reward/csv_t1.7_h20_en10000000_st32000.csv};
+
+		\end{groupplot}
+	\end{tikzpicture}
+\end{document}

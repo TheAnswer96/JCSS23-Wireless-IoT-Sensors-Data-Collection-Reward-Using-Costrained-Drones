@@ -1,0 +1,1295 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.12) (preloaded format=pdflatex 2021.1.5)  10 MAR 2022 15:41
+entering extended mode
+**C:/Users/RE_MIDA10/Desktop/SMARTCOMP22/results/csv/plot_reward_no_hovering.te
+x
+
+(C:/Users/RE_MIDA10/Desktop/SMARTCOMP22/results/csv/plot_reward_no_hovering.tex
+LaTeX2e <2020-10-01> patch level 2
+L3 programming layer <2020-12-07> xparse <2020-03-03>
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/latex/standalone\standalo
+ne.cls
+Document Class: standalone 2018/03/26 v1.3a Class to compile TeX sub-files stan
+dalone
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/latex/tools\shellesc.sty
+Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
+Package shellesc Info: Restricted shell escape enabled on input line 77.
+)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifluatex.st
+y
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+ (C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+))
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval.sty
+Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
+
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyval.t
+ex
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvutils.
+tex
+\XKV@toks=\toks15
+\XKV@tempa@toks=\toks16
+
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\keyval.te
+x))
+\XKV@depth=\count177
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+\sa@internal=\count178
+\c@sapage=\count179
+
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/latex/standalone\standalo
+ne.cfg
+File: standalone.cfg 2018/03/26 v1.3a Default configuration file for 'standalon
+e' class
+)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
+File: size10.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
+)
+\c@part=\count180
+\c@section=\count181
+\c@subsection=\count182
+\c@subsubsection=\count183
+\c@paragraph=\count184
+\c@subparagraph=\count185
+\c@figure=\count186
+\c@table=\count187
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+)
+\sa@box=\box47
+)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/latex/pgfplots\pgfplots.s
+ty
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots
+.revision.tex)
+Package: pgfplots 2020/02/29 v1.17 Data Visualization (1.17)
+
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.s
+ty
+Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.s
+ty
+Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphi
+cs.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex
+.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen139
+\Gin@req@width=\dimen140
+)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\t
+ikz.sty
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.
+sty
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrc
+s.sty
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgf
+util-common.tex
+\pgfutil@everybye=\toks17
+\pgfutil@tempdima=\dimen141
+\pgfutil@tempdimb=\dimen142
+
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgf
+util-common-lists.tex))
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgf
+util-latex.def
+\pgfutil@abb=\box48
+)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgf
+rcs.code.tex
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.revision.
+tex)
+Package: pgfrcs 2020/12/01 v3.1.7a (3.1.7a)
+))
+Package: pgf 2020/12/01 v3.1.7a (3.1.7a)
+
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgfc
+ore.sty
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlayer\pgf
+sys.sty
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\p
+gfsys.code.tex
+Package: pgfsys 2020/12/01 v3.1.7a (3.1.7a)
+
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgf
+keys.code.tex
+\pgfkeys@pathtoks=\toks18
+\pgfkeys@temptoks=\toks19
+
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgf
+keysfiltered.code.tex
+\pgfkeys@tmptoks=\toks20
+))
+\pgf@x=\dimen143
+\pgf@y=\dimen144
+\pgf@xa=\dimen145
+\pgf@ya=\dimen146
+\pgf@xb=\dimen147
+\pgf@yb=\dimen148
+\pgf@xc=\dimen149
+\pgf@yc=\dimen150
+\pgf@xd=\dimen151
+\pgf@yd=\dimen152
+\w@pgf@writea=\write3
+\r@pgf@reada=\read2
+\c@pgf@counta=\count188
+\c@pgf@countb=\count189
+\c@pgf@countc=\count190
+\c@pgf@countd=\count191
+\t@pgf@toka=\toks21
+\t@pgf@tokb=\toks22
+\t@pgf@tokc=\toks23
+\pgf@sys@id@count=\count192
+
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\p
+gf.cfg
+File: pgf.cfg 2020/12/01 v3.1.7a (3.1.7a)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\p
+gfsys-pdftex.def
+File: pgfsys-pdftex.def 2020/12/01 v3.1.7a (3.1.7a)
+
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\p
+gfsys-common-pdf.def
+File: pgfsys-common-pdf.def 2020/12/01 v3.1.7a (3.1.7a)
+)))
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\p
+gfsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgfsyssoftpath@smallbuffer@items=\count193
+\pgfsyssoftpath@bigbuffer@items=\count194
+)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\p
+gfsysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+))
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.
+cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pg
+fcore.code.tex
+Package: pgfcore 2020/12/01 v3.1.7a (3.1.7a)
+
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.
+code.tex
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathc
+alc.code.tex
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathu
+til.code.tex)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathp
+arser.code.tex
+\pgfmath@dimen=\dimen153
+\pgfmath@count=\count195
+\pgfmath@box=\box49
+\pgfmath@toks=\toks24
+\pgfmath@stack@operand=\toks25
+\pgfmath@stack@operation=\toks26
+)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathf
+unctions.code.tex
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathf
+unctions.basic.code.tex)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathf
+unctions.trigonometric.code.tex)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathf
+unctions.random.code.tex)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathf
+unctions.comparison.code.tex)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathf
+unctions.base.code.tex)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathf
+unctions.round.code.tex)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathf
+unctions.misc.code.tex)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathf
+unctions.integerarithmetics.code.tex)))
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathf
+loat.code.tex
+\c@pgfmathroundto@lastzeros=\count196
+))
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfint.c
+ode.tex)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pg
+fcorepoints.code.tex
+File: pgfcorepoints.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgf@picminx=\dimen154
+\pgf@picmaxx=\dimen155
+\pgf@picminy=\dimen156
+\pgf@picmaxy=\dimen157
+\pgf@pathminx=\dimen158
+\pgf@pathmaxx=\dimen159
+\pgf@pathminy=\dimen160
+\pgf@pathmaxy=\dimen161
+\pgf@xx=\dimen162
+\pgf@xy=\dimen163
+\pgf@yx=\dimen164
+\pgf@yy=\dimen165
+\pgf@zx=\dimen166
+\pgf@zy=\dimen167
+)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pg
+fcorepathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgf@path@lastx=\dimen168
+\pgf@path@lasty=\dimen169
+)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pg
+fcorepathusage.code.tex
+File: pgfcorepathusage.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgf@shorten@end@additional=\dimen170
+\pgf@shorten@start@additional=\dimen171
+)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pg
+fcorescopes.code.tex
+File: pgfcorescopes.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgfpic=\box50
+\pgf@hbox=\box51
+\pgf@layerbox@main=\box52
+\pgf@picture@serial@count=\count197
+)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pg
+fcoregraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgflinewidth=\dimen172
+)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pg
+fcoretransformations.code.tex
+File: pgfcoretransformations.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgf@pt@x=\dimen173
+\pgf@pt@y=\dimen174
+\pgf@pt@temp=\dimen175
+)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pg
+fcorequick.code.tex
+File: pgfcorequick.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pg
+fcoreobjects.code.tex
+File: pgfcoreobjects.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pg
+fcorepathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pg
+fcorearrows.code.tex
+File: pgfcorearrows.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgfarrowsep=\dimen176
+)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pg
+fcoreshade.code.tex
+File: pgfcoreshade.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgf@max=\dimen177
+\pgf@sys@shading@range@num=\count198
+\pgf@shadingcount=\count199
+)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pg
+fcoreimage.code.tex
+File: pgfcoreimage.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pg
+fcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgfexternal@startupbox=\box53
+))
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pg
+fcorelayers.code.tex
+File: pgfcorelayers.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pg
+fcoretransparency.code.tex
+File: pgfcoretransparency.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pg
+fcorepatterns.code.tex
+File: pgfcorepatterns.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pg
+fcorerdf.code.tex
+File: pgfcorerdf.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+)))
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmo
+duleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgfnodeparttextbox=\box54
+)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmo
+duleplot.code.tex
+File: pgfmoduleplot.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\p
+gfcomp-version-0-65.sty
+Package: pgfcomp-version-0-65 2020/12/01 v3.1.7a (3.1.7a)
+\pgf@nodesepstart=\dimen178
+\pgf@nodesepend=\dimen179
+)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\p
+gfcomp-version-1-18.sty
+Package: pgfcomp-version-1-18 2020/12/01 v3.1.7a (3.1.7a)
+))
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgffo
+r.sty
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfke
+ys.sty
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgf
+keys.code.tex))
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/latex/pgf/math\pgfmath.st
+y
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.
+code.tex))
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgf
+for.code.tex
+Package: pgffor 2020/12/01 v3.1.7a (3.1.7a)
+
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.
+code.tex)
+\pgffor@iter=\dimen180
+\pgffor@skip=\dimen181
+\pgffor@stack=\toks27
+\pgffor@toks=\toks28
+))
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer
+/tikz\tikz.code.tex
+Package: tikz 2020/12/01 v3.1.7a (3.1.7a)
+
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgf
+libraryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgf@plot@mark@count=\count266
+\pgfplotmarksize=\dimen182
+)
+\tikz@lastx=\dimen183
+\tikz@lasty=\dimen184
+\tikz@lastxsaved=\dimen185
+\tikz@lastysaved=\dimen186
+\tikz@lastmovetox=\dimen187
+\tikz@lastmovetoy=\dimen188
+\tikzleveldistance=\dimen189
+\tikzsiblingdistance=\dimen190
+\tikz@figbox=\box55
+\tikz@figbox@bg=\box56
+\tikz@tempbox=\box57
+\tikz@tempbox@bg=\box58
+\tikztreelevel=\count267
+\tikznumberofchildren=\count268
+\tikznumberofcurrentchild=\count269
+\tikz@fig@count=\count270
+
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmo
+dulematrix.code.tex
+File: pgfmodulematrix.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgfmatrixcurrentrow=\count271
+\pgfmatrixcurrentcolumn=\count272
+\pgf@matrix@numberofcolumns=\count273
+)
+\tikz@expandcount=\count274
+
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer
+/tikz/libraries\tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+)))
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots
+.code.tex
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots
+core.code.tex
+\t@pgfplots@toka=\toks29
+\t@pgfplots@tokb=\toks30
+\t@pgfplots@tokc=\toks31
+\pgfplots@tmpa=\dimen191
+\c@pgfplots@coordindex=\count275
+\c@pgfplots@scanlineindex=\count276
+
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/sys\pgfp
+lotssysgeneric.code.tex))
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/libs\pgf
+plotslibrary.code.tex)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/oldpgfco
+mpatib\pgfplotsoldpgfsupp_loader.code.tex
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgf
+libraryfpu.code.tex))
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgf
+plotsutil.code.tex
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststru
+cture\pgfplotsliststructure.code.tex)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststru
+cture\pgfplotsliststructureext.code.tex)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststru
+cture\pgfplotsarray.code.tex
+\c@pgfplotsarray@tmp=\count277
+)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststru
+cture\pgfplotsmatrix.code.tex)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/numtable
+\pgfplotstableshared.code.tex
+\c@pgfplotstable@counta=\count278
+\t@pgfplotstable@a=\toks32
+)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststru
+cture\pgfplotsdeque.code.tex)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgf
+plotsbinary.code.tex
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgf
+plotsbinary.data.code.tex))
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgf
+plotsutil.verb.code.tex)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/libs\pgf
+librarypgfplots.surfshading.code.tex
+\c@pgfplotslibrarysurf@no=\count279
+
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/sys\pgfl
+ibrarypgfplots.surfshading.pgfsys-pdftex.def)))
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgf
+plotscolormap.code.tex
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgf
+plotscolor.code.tex))
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots
+stackedplots.code.tex)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots
+plothandlers.code.tex
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots
+meshplothandler.code.tex
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots
+meshplotimage.code.tex)))
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots
+.scaling.code.tex)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots
+coordprocessing.code.tex)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots
+.errorbars.code.tex)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots
+.markers.code.tex)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots
+ticks.code.tex)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots
+.paths.code.tex)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer
+/tikz/libraries\tikzlibrarydecorations.code.tex
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmo
+duledecorations.code.tex
+\pgfdecoratedcompleteddistance=\dimen192
+\pgfdecoratedremainingdistance=\dimen193
+\pgfdecoratedinputsegmentcompleteddistance=\dimen194
+\pgfdecoratedinputsegmentremainingdistance=\dimen195
+\pgf@decorate@distancetomove=\dimen196
+\pgf@decorate@repeatstate=\count280
+\pgfdecorationsegmentamplitude=\dimen197
+\pgfdecorationsegmentlength=\dimen198
+)
+\tikz@lib@dec@box=\box59
+)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer
+/tikz/libraries\tikzlibrarydecorations.pathmorphing.code.tex
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/dec
+orations\pgflibrarydecorations.pathmorphing.code.tex))
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer
+/tikz/libraries\tikzlibrarydecorations.pathreplacing.code.tex
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/dec
+orations\pgflibrarydecorations.pathreplacing.code.tex))
+\pgfplots@numplots=\count281
+\pgfplots@xmin@reg=\dimen199
+\pgfplots@xmax@reg=\dimen256
+\pgfplots@ymin@reg=\dimen257
+\pgfplots@ymax@reg=\dimen258
+\pgfplots@zmin@reg=\dimen259
+\pgfplots@zmax@reg=\dimen260
+)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer
+/tikz/libraries\tikzlibraryplotmarks.code.tex
+File: tikzlibraryplotmarks.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgf
+libraryplotmarks.code.tex
+File: pgflibraryplotmarks.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+)))
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/latex/filecontents\fileco
+ntents.sty
+Package: filecontents 2019/09/20 v1.5 Create an external file from within a LaT
+eX document
+
+
+Package filecontents Warning: This package is obsolete. Disabling it and
+(filecontents)                passing control to the filecontents environment
+(filecontents)                defined by the LaTeX kernel.
+
+)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/latex/pgfplots\pgfplotsta
+ble.sty
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots
+.revision.tex)
+Package: pgfplotstable 2020/02/29 v1.17 Table typesetting and Pretty-printing (
+1.17)
+
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/numtable
+\pgfplotstable.code.tex
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/numtable
+\pgfplotstable.coltype.code.tex))
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
+\col@sep=\dimen261
+\ar@mcellbox=\box60
+\extrarowheight=\dimen262
+\NC@list=\toks33
+\extratabsurround=\skip49
+\backup@length=\skip50
+\ar@cellbox=\box61
+))
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/libs\tik
+zlibrarypgfplots.groupplots.code.tex
+\pgfplots@group@current@plot=\count282
+\pgfplots@group@current@row=\count283
+\pgfplots@group@current@column=\count284
+
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer
+/tikz/libraries\tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+))
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend
+-pdftex.def
+File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
+\l__kernel_color_stack_int=\count285
+\l__pdf_internal_box=\box62
+)
+No file plot_reward_no_hovering.aux.
+\openout1 = `plot_reward_no_hovering.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pd
+f.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count286
+\scratchdimen=\dimen263
+\scratchbox=\box63
+\nofMPsegments=\count287
+\nofMParguments=\count288
+\everyMPshowfont=\toks34
+\MPscratchCnt=\count289
+\MPscratchDim=\dimen264
+\MPnumerator=\count290
+\makeMPintoPDFobject=\count291
+\everyMPtoPDFconversion=\toks35
+)
+(C:\Users\RE_MIDA10\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstop
+df-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+)
+Package pgfplots notification 'compat/show suggested version=true': you might b
+enefit from \pgfplotsset{compat=1.17} (current compat level: 1.6).
+
+PGFPlots: reading {no_hovering/csv_t0_h10_en2500000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0_h10_en2500000_st16000.csv' 
+has an empty column name; replacing it by '0'' on input line 50.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0_h10_en2500000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0_h10_en2500000_st16000.csv' 
+has an empty column name; replacing it by '0'' on input line 53.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0_h10_en2500000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0_h10_en2500000_st16000.csv' 
+has an empty column name; replacing it by '0'' on input line 56.
+
+ [warning /pgfplots/warning/empty column name]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 65.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 65.
+PGFPlots: reading {no_hovering/csv_t0_h20_en2500000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0_h20_en2500000_st16000.csv' 
+has an empty column name; replacing it by '0'' on input line 67.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0_h20_en2500000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0_h20_en2500000_st16000.csv' 
+has an empty column name; replacing it by '0'' on input line 69.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0_h20_en2500000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0_h20_en2500000_st16000.csv' 
+has an empty column name; replacing it by '0'' on input line 71.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0_h10_en5000000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0_h10_en5000000_st16000.csv' 
+has an empty column name; replacing it by '0'' on input line 82.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0_h10_en5000000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0_h10_en5000000_st16000.csv' 
+has an empty column name; replacing it by '0'' on input line 84.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0_h10_en5000000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0_h10_en5000000_st16000.csv' 
+has an empty column name; replacing it by '0'' on input line 86.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0_h20_en5000000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0_h20_en5000000_st16000.csv' 
+has an empty column name; replacing it by '0'' on input line 97.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0_h20_en5000000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0_h20_en5000000_st16000.csv' 
+has an empty column name; replacing it by '0'' on input line 99.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0_h20_en5000000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0_h20_en5000000_st16000.csv' 
+has an empty column name; replacing it by '0'' on input line 101.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0_h10_en10000000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0_h10_en10000000_st16000.csv'
+ has an empty column name; replacing it by '0'' on input line 113.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0_h10_en10000000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0_h10_en10000000_st16000.csv'
+ has an empty column name; replacing it by '0'' on input line 115.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0_h10_en10000000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0_h10_en10000000_st16000.csv'
+ has an empty column name; replacing it by '0'' on input line 117.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0_h20_en10000000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0_h20_en10000000_st16000.csv'
+ has an empty column name; replacing it by '0'' on input line 126.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0_h20_en10000000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0_h20_en10000000_st16000.csv'
+ has an empty column name; replacing it by '0'' on input line 128.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0_h20_en10000000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0_h20_en10000000_st16000.csv'
+ has an empty column name; replacing it by '0'' on input line 130.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0_h10_en2500000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0_h10_en2500000_st32000.csv' 
+has an empty column name; replacing it by '0'' on input line 141.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0_h10_en2500000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0_h10_en2500000_st32000.csv' 
+has an empty column name; replacing it by '0'' on input line 143.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0_h10_en2500000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0_h10_en2500000_st32000.csv' 
+has an empty column name; replacing it by '0'' on input line 145.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0_h20_en2500000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0_h20_en2500000_st32000.csv' 
+has an empty column name; replacing it by '0'' on input line 157.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0_h20_en2500000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0_h20_en2500000_st32000.csv' 
+has an empty column name; replacing it by '0'' on input line 159.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0_h20_en2500000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0_h20_en2500000_st32000.csv' 
+has an empty column name; replacing it by '0'' on input line 161.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0_h10_en5000000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0_h10_en5000000_st32000.csv' 
+has an empty column name; replacing it by '0'' on input line 175.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0_h10_en5000000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0_h10_en5000000_st32000.csv' 
+has an empty column name; replacing it by '0'' on input line 177.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0_h10_en5000000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0_h10_en5000000_st32000.csv' 
+has an empty column name; replacing it by '0'' on input line 179.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0_h20_en5000000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0_h20_en5000000_st32000.csv' 
+has an empty column name; replacing it by '0'' on input line 191.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0_h20_en5000000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0_h20_en5000000_st32000.csv' 
+has an empty column name; replacing it by '0'' on input line 193.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0_h20_en5000000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0_h20_en5000000_st32000.csv' 
+has an empty column name; replacing it by '0'' on input line 195.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0_h10_en10000000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0_h10_en10000000_st32000.csv'
+ has an empty column name; replacing it by '0'' on input line 207.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0_h10_en10000000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0_h10_en10000000_st32000.csv'
+ has an empty column name; replacing it by '0'' on input line 209.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0_h10_en10000000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0_h10_en10000000_st32000.csv'
+ has an empty column name; replacing it by '0'' on input line 211.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0_h20_en10000000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0_h20_en10000000_st32000.csv'
+ has an empty column name; replacing it by '0'' on input line 225.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0_h20_en10000000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0_h20_en10000000_st32000.csv'
+ has an empty column name; replacing it by '0'' on input line 227.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0_h20_en10000000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0_h20_en10000000_st32000.csv'
+ has an empty column name; replacing it by '0'' on input line 229.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0.8_h10_en2500000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0.8_h10_en2500000_st16000.csv
+' has an empty column name; replacing it by '0'' on input line 243.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0.8_h10_en2500000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0.8_h10_en2500000_st16000.csv
+' has an empty column name; replacing it by '0'' on input line 245.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0.8_h10_en2500000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0.8_h10_en2500000_st16000.csv
+' has an empty column name; replacing it by '0'' on input line 247.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0.8_h20_en2500000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0.8_h20_en2500000_st16000.csv
+' has an empty column name; replacing it by '0'' on input line 258.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0.8_h20_en2500000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0.8_h20_en2500000_st16000.csv
+' has an empty column name; replacing it by '0'' on input line 260.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0.8_h20_en2500000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0.8_h20_en2500000_st16000.csv
+' has an empty column name; replacing it by '0'' on input line 262.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0.8_h10_en5000000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0.8_h10_en5000000_st16000.csv
+' has an empty column name; replacing it by '0'' on input line 273.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0.8_h10_en5000000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0.8_h10_en5000000_st16000.csv
+' has an empty column name; replacing it by '0'' on input line 275.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0.8_h10_en5000000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0.8_h10_en5000000_st16000.csv
+' has an empty column name; replacing it by '0'' on input line 277.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0.8_h20_en5000000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0.8_h20_en5000000_st16000.csv
+' has an empty column name; replacing it by '0'' on input line 288.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0.8_h20_en5000000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0.8_h20_en5000000_st16000.csv
+' has an empty column name; replacing it by '0'' on input line 290.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0.8_h20_en5000000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0.8_h20_en5000000_st16000.csv
+' has an empty column name; replacing it by '0'' on input line 292.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0.8_h10_en10000000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0.8_h10_en10000000_st16000.cs
+v' has an empty column name; replacing it by '0'' on input line 304.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0.8_h10_en10000000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0.8_h10_en10000000_st16000.cs
+v' has an empty column name; replacing it by '0'' on input line 306.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0.8_h10_en10000000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0.8_h10_en10000000_st16000.cs
+v' has an empty column name; replacing it by '0'' on input line 308.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0.8_h20_en10000000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0.8_h20_en10000000_st16000.cs
+v' has an empty column name; replacing it by '0'' on input line 317.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0.8_h20_en10000000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0.8_h20_en10000000_st16000.cs
+v' has an empty column name; replacing it by '0'' on input line 319.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0.8_h20_en10000000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0.8_h20_en10000000_st16000.cs
+v' has an empty column name; replacing it by '0'' on input line 321.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0.8_h10_en2500000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0.8_h10_en2500000_st32000.csv
+' has an empty column name; replacing it by '0'' on input line 332.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0.8_h10_en2500000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0.8_h10_en2500000_st32000.csv
+' has an empty column name; replacing it by '0'' on input line 334.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0.8_h10_en2500000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0.8_h10_en2500000_st32000.csv
+' has an empty column name; replacing it by '0'' on input line 336.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0.8_h20_en2500000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0.8_h20_en2500000_st32000.csv
+' has an empty column name; replacing it by '0'' on input line 348.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0.8_h20_en2500000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0.8_h20_en2500000_st32000.csv
+' has an empty column name; replacing it by '0'' on input line 350.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0.8_h20_en2500000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0.8_h20_en2500000_st32000.csv
+' has an empty column name; replacing it by '0'' on input line 352.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0.8_h10_en5000000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0.8_h10_en5000000_st32000.csv
+' has an empty column name; replacing it by '0'' on input line 366.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0.8_h10_en5000000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0.8_h10_en5000000_st32000.csv
+' has an empty column name; replacing it by '0'' on input line 368.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0.8_h10_en5000000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0.8_h10_en5000000_st32000.csv
+' has an empty column name; replacing it by '0'' on input line 370.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0.8_h20_en5000000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0.8_h20_en5000000_st32000.csv
+' has an empty column name; replacing it by '0'' on input line 382.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0.8_h20_en5000000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0.8_h20_en5000000_st32000.csv
+' has an empty column name; replacing it by '0'' on input line 384.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0.8_h20_en5000000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0.8_h20_en5000000_st32000.csv
+' has an empty column name; replacing it by '0'' on input line 386.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0.8_h10_en10000000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0.8_h10_en10000000_st32000.cs
+v' has an empty column name; replacing it by '0'' on input line 399.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0.8_h10_en10000000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0.8_h10_en10000000_st32000.cs
+v' has an empty column name; replacing it by '0'' on input line 401.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0.8_h10_en10000000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0.8_h10_en10000000_st32000.cs
+v' has an empty column name; replacing it by '0'' on input line 403.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0.8_h20_en10000000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0.8_h20_en10000000_st32000.cs
+v' has an empty column name; replacing it by '0'' on input line 417.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0.8_h20_en10000000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0.8_h20_en10000000_st32000.cs
+v' has an empty column name; replacing it by '0'' on input line 419.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t0.8_h20_en10000000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t0.8_h20_en10000000_st32000.cs
+v' has an empty column name; replacing it by '0'' on input line 421.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t1.7_h10_en2500000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t1.7_h10_en2500000_st16000.csv
+' has an empty column name; replacing it by '0'' on input line 435.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t1.7_h10_en2500000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t1.7_h10_en2500000_st16000.csv
+' has an empty column name; replacing it by '0'' on input line 437.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t1.7_h10_en2500000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t1.7_h10_en2500000_st16000.csv
+' has an empty column name; replacing it by '0'' on input line 439.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t1.7_h20_en2500000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t1.7_h20_en2500000_st16000.csv
+' has an empty column name; replacing it by '0'' on input line 450.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t1.7_h20_en2500000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t1.7_h20_en2500000_st16000.csv
+' has an empty column name; replacing it by '0'' on input line 452.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t1.7_h20_en2500000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t1.7_h20_en2500000_st16000.csv
+' has an empty column name; replacing it by '0'' on input line 454.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t1.7_h10_en5000000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t1.7_h10_en5000000_st16000.csv
+' has an empty column name; replacing it by '0'' on input line 465.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t1.7_h10_en5000000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t1.7_h10_en5000000_st16000.csv
+' has an empty column name; replacing it by '0'' on input line 467.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t1.7_h10_en5000000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t1.7_h10_en5000000_st16000.csv
+' has an empty column name; replacing it by '0'' on input line 469.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t1.7_h20_en5000000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t1.7_h20_en5000000_st16000.csv
+' has an empty column name; replacing it by '0'' on input line 480.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t1.7_h20_en5000000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t1.7_h20_en5000000_st16000.csv
+' has an empty column name; replacing it by '0'' on input line 482.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t1.7_h20_en5000000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t1.7_h20_en5000000_st16000.csv
+' has an empty column name; replacing it by '0'' on input line 484.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t1.7_h10_en10000000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t1.7_h10_en10000000_st16000.cs
+v' has an empty column name; replacing it by '0'' on input line 496.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t1.7_h10_en10000000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t1.7_h10_en10000000_st16000.cs
+v' has an empty column name; replacing it by '0'' on input line 498.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t1.7_h10_en10000000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t1.7_h10_en10000000_st16000.cs
+v' has an empty column name; replacing it by '0'' on input line 500.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t1.7_h20_en10000000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t1.7_h20_en10000000_st16000.cs
+v' has an empty column name; replacing it by '0'' on input line 509.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t1.7_h20_en10000000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t1.7_h20_en10000000_st16000.cs
+v' has an empty column name; replacing it by '0'' on input line 511.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t1.7_h20_en10000000_st16000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t1.7_h20_en10000000_st16000.cs
+v' has an empty column name; replacing it by '0'' on input line 513.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t1.7_h10_en2500000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t1.7_h10_en2500000_st32000.csv
+' has an empty column name; replacing it by '0'' on input line 524.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t1.7_h10_en2500000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t1.7_h10_en2500000_st32000.csv
+' has an empty column name; replacing it by '0'' on input line 526.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t1.7_h10_en2500000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t1.7_h10_en2500000_st32000.csv
+' has an empty column name; replacing it by '0'' on input line 528.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t1.7_h20_en2500000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t1.7_h20_en2500000_st32000.csv
+' has an empty column name; replacing it by '0'' on input line 540.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t1.7_h20_en2500000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t1.7_h20_en2500000_st32000.csv
+' has an empty column name; replacing it by '0'' on input line 542.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t1.7_h20_en2500000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t1.7_h20_en2500000_st32000.csv
+' has an empty column name; replacing it by '0'' on input line 544.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t1.7_h10_en5000000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t1.7_h10_en5000000_st32000.csv
+' has an empty column name; replacing it by '0'' on input line 558.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t1.7_h10_en5000000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t1.7_h10_en5000000_st32000.csv
+' has an empty column name; replacing it by '0'' on input line 560.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t1.7_h10_en5000000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t1.7_h10_en5000000_st32000.csv
+' has an empty column name; replacing it by '0'' on input line 562.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t1.7_h20_en5000000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t1.7_h20_en5000000_st32000.csv
+' has an empty column name; replacing it by '0'' on input line 574.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t1.7_h20_en5000000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t1.7_h20_en5000000_st32000.csv
+' has an empty column name; replacing it by '0'' on input line 576.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t1.7_h20_en5000000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t1.7_h20_en5000000_st32000.csv
+' has an empty column name; replacing it by '0'' on input line 578.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t1.7_h10_en10000000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t1.7_h10_en10000000_st32000.cs
+v' has an empty column name; replacing it by '0'' on input line 591.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t1.7_h10_en10000000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t1.7_h10_en10000000_st32000.cs
+v' has an empty column name; replacing it by '0'' on input line 593.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t1.7_h10_en10000000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t1.7_h10_en10000000_st32000.cs
+v' has an empty column name; replacing it by '0'' on input line 595.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t1.7_h20_en10000000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t1.7_h20_en10000000_st32000.cs
+v' has an empty column name; replacing it by '0'' on input line 609.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t1.7_h20_en10000000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t1.7_h20_en10000000_st32000.cs
+v' has an empty column name; replacing it by '0'' on input line 611.
+
+ [warning /pgfplots/warning/empty column name]
+PGFPlots: reading {no_hovering/csv_t1.7_h20_en10000000_st32000.csv}
+
+Package pgfplots Warning: Table 'no_hovering/csv_t1.7_h20_en10000000_st32000.cs
+v' has an empty column name; replacing it by '0'' on input line 613.
+
+ [warning /pgfplots/warning/empty column name]
+! TeX capacity exceeded, sorry [main memory size=3000000].
+<argument> \sa@box 
+                   
+l.617 \end{document}
+                    
+If you really absolutely need more capacity,
+you can ask a wizard to enlarge me.
+
+ 
+Here is how much of TeX's memory you used:
+ 23515 strings out of 479697
+ 638714 string characters out of 2865234
+ 2999999 words of memory out of 3000000
+ 40195 multiletter control sequences out of 15000+200000
+ 403731 words of font info for 28 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 94i,18n,98p,796b,2924s stack positions out of 5000i,500n,10000p,200000b,50000s
+!  ==> Fatal error occurred, no output PDF file produced!
