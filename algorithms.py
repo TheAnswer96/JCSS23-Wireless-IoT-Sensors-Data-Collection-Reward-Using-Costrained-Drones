@@ -207,6 +207,7 @@ def get_ratios_mre(r, h, d, w, last):
             ratios.append([ratio, w[node][1]])
     return ratios
 
+
 def get_ratios_mrs(r, d, s, w, last):
     ratios = []
     for node in range(len(w)):
@@ -215,6 +216,7 @@ def get_ratios_mrs(r, d, s, w, last):
             ratio = r[node][0] / s[node][0]
             ratios.append([ratio, w[node][1]])
     return ratios
+
 
 def update_sets(inserted, wps):
     to_remove = []
@@ -227,16 +229,23 @@ def update_sets(inserted, wps):
         wps.remove(e)
     return wps
 
-
+def get_sensor_from_selection(relative_pos, set_wp):
+    index = 0
+    for e in set_wp:
+        if e[1] == relative_pos:
+            index = list(e[0])[0]
+    return index
 def MRE(wps, reward, weight, distance, hovering, E, S, debug=False):
     wpss_set = [(wps[p][1], p) for p in range(len(wps))]
     wps_copy = copy.deepcopy(wps)
-    set_wps = [(wps_copy[p][1], p) for p in range(len(wps_copy))]
+    set_wps = [(wps_copy[p][1], p) for p in range(len(wps))]
+    print(set_wps)
     # set_wps = np.array(set_wps)
     weights = np.array(weight)
     rewards = np.array(reward)
 
     mre_sol_wps = [0]
+    effective_sol_sensors = [0]
     mre_sol_sensors = set()
     last = 0
 
@@ -263,10 +272,16 @@ def MRE(wps, reward, weight, distance, hovering, E, S, debug=False):
         for i in range(len(set_wps)):
             if set_wps[i][1] == selected[1]:
                 index = i
-        p_reward, p_hover, p_weight = get_composite_reward_hovering_storage_single(rewards, hovering, weights,set_wps[index])
+        p_reward, p_hover, p_weight = get_composite_reward_hovering_storage_single(rewards, hovering, weights,
+                                                                                   set_wps[index])
         temporary_sol = mre_sol_wps + [selected[1], 0]
-        if (compute_weight_tsp(temporary_sol, distance) + compute_hovering_tsp(wpss_set, temporary_sol, hovering)) <= E and total_storage + p_weight <= S:
+        if (compute_weight_tsp(temporary_sol, distance) + compute_hovering_tsp(wpss_set, temporary_sol,
+                                                                               hovering)) <= E and total_storage + p_weight <= S:
             mre_sol_wps.append(selected[1])
+            effective_sol_sensors.append(get_sensor_from_selection(selected[1],set_wps))
+            print(selected[1])
+            print(set_wps)
+            print(get_sensor_from_selection(selected[1],set_wps))
             mre_sol_sensors.add(selected[0])
             total_storage = total_storage + p_weight
             total_profit = total_profit + p_reward
@@ -285,9 +300,11 @@ def MRE(wps, reward, weight, distance, hovering, E, S, debug=False):
                   mre_sol_wps)
             input()
 
-    total_energy = compute_weight_tsp(mre_sol_wps + [0], distance) + compute_hovering_tsp(wpss_set, mre_sol_wps, hovering)
+    total_energy = compute_weight_tsp(mre_sol_wps + [0], distance) + compute_hovering_tsp(wpss_set, mre_sol_wps,
+                                                                                          hovering)
     mre_sol_wps.append(0)
-    return [total_profit, total_storage, total_energy, mre_sol_wps]
+    effective_sol_sensors.append(0)
+    return [total_profit, total_storage, total_energy, mre_sol_wps, effective_sol_sensors]
 
 
 # - ENDS -
@@ -360,4 +377,52 @@ def MRS(wps, reward, weight, distance, hovering, E, S, debug=False):
     mre_sol_wps.append(0)
     return [total_profit, total_storage, total_energy, mre_sol_wps]
 
+
 # - END -
+
+# - MRS BLOCK  -
+
+# - START -
+def del_drone_selection(elements, todel):
+    index_to_del = []
+    for e in range(len(elements)):
+        if list(elements[e][1])[0] in todel:
+            index_to_del.append(e)
+    index_to_del.sort(reverse=True)
+    for index in index_to_del:
+        elements.pop(index)
+    print(elements)
+    return elements
+def multiMRE(wps, reward, weight, distance, hovering, E, S, nod, debug=False):
+    wps_copy = copy.deepcopy(wps)
+    wps_copy = wps_copy[0:len(weight)]
+    set_wps = [(wps_copy[p][1], p) for p in range(len(weight))]
+    print(wps_copy)
+    print(set_wps)
+    sol = []
+    for i in range(nod):
+        sol.append([])
+
+    total_energy = 0
+    total_profit = 0
+    total_storage = 0
+
+    sensors_sel = []
+    for drone in range(nod):
+        # wps_copy.remove
+        elements = del_drone_selection(wps_copy, sensors_sel)
+        single_sol = MRE(elements, reward, weight, distance, hovering, E, S, False)
+        print("\n#drone: ", drone, " reward: ", single_sol[0])
+        print("#drone: ", drone, " storage: ", single_sol[1])
+        print("#drone: ", drone, " energy: ", single_sol[2])
+        print("#drone: ", drone, " selection: ", single_sol[3])
+        total_profit = total_profit + single_sol[0]
+        total_storage = total_storage + single_sol[1]
+        total_energy = total_energy + single_sol[2]
+        sol[drone] = sol[drone] + single_sol[4]
+        sensors_sel = sensors_sel + single_sol[4]
+        sensors_sel.remove(0)
+        sensors_sel.remove(0)
+    return [total_profit, total_storage, total_energy, sol]
+
+# - END  -

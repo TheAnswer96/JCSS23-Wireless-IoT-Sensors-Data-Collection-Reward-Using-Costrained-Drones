@@ -25,13 +25,13 @@ MAX_REWARD = 10
 ITERATIONS = 13
 MAX_DOWNLOAD_E = (WEIGHTS[1] / GAMMA) * BETA
 # MAX_DISTANCE = (E[0] - MAX_DOWNLOAD_E) / alfa
-MAX_DISTANCE = 5000
+MAX_DISTANCE = 500
 
 
 # - INPUT FUNCTIONS -
 
 # - START -
-
+np.random.seed(0)
 def build_circle(sensor, height):
     global RAY_DRONE
 
@@ -46,7 +46,6 @@ def get_intersections(x0, y0, r0, x1, y1, r1):
     # circle 2: (x1, y1), radius r1
 
     d = math.sqrt((x1 - x0) ** 2 + (y1 - y0) ** 2)
-
     # non intersecting
     if d > r0 + r1:
         return None, None
