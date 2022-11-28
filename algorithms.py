@@ -279,9 +279,6 @@ def MRE(wps, reward, weight, distance, hovering, E, S, debug=False):
                                                                                hovering)) <= E and total_storage + p_weight <= S:
             mre_sol_wps.append(selected[1])
             effective_sol_sensors.append(get_sensor_from_selection(selected[1],set_wps))
-            print(selected[1])
-            print(set_wps)
-            print(get_sensor_from_selection(selected[1],set_wps))
             mre_sol_sensors.add(selected[0])
             total_storage = total_storage + p_weight
             total_profit = total_profit + p_reward
@@ -316,12 +313,13 @@ def MRE(wps, reward, weight, distance, hovering, E, S, debug=False):
 def MRS(wps, reward, weight, distance, hovering, E, S, debug=False):
     wpss_set = [(wps[p][1], p) for p in range(len(wps))]
     wps_copy = copy.deepcopy(wps)
-    set_wps = [(wps_copy[p][1], p) for p in range(len(wps_copy))]
+    set_wps = [(wps_copy[p][1], p) for p in range(len(wps))]
     # set_wps = np.array(set_wps)
     weights = np.array(weight)
     rewards = np.array(reward)
     N = len(rewards)
 
+    effective_sol_sensors = [0]
     mre_sol_wps = [0]
     mre_sol_sensors = set()
     last = 0
@@ -356,6 +354,7 @@ def MRS(wps, reward, weight, distance, hovering, E, S, debug=False):
                                                                                hovering)) <= E and total_storage + p_weight <= S:
             mre_sol_wps.append(selected[1])
             mre_sol_sensors.add(selected[0])
+            effective_sol_sensors.append(get_sensor_from_selection(selected[1], set_wps))
             total_storage = total_storage + p_weight
             total_profit = total_profit + p_reward
             set_wps = update_sets(index, set_wps)
@@ -375,12 +374,13 @@ def MRS(wps, reward, weight, distance, hovering, E, S, debug=False):
     total_energy = compute_weight_tsp(mre_sol_wps + [0], distance) + compute_hovering_tsp(wpss_set, mre_sol_wps,
                                                                                           hovering)
     mre_sol_wps.append(0)
-    return [total_profit, total_storage, total_energy, mre_sol_wps]
+    effective_sol_sensors.append(0)
+    return [total_profit, total_storage, total_energy, mre_sol_wps, effective_sol_sensors]
 
 
 # - END -
 
-# - MRS BLOCK  -
+# - MRE BLOCK  -
 
 # - START -
 def del_drone_selection(elements, todel):
@@ -411,7 +411,42 @@ def multiMRE(wps, reward, weight, distance, hovering, E, S, nod, debug=False):
     for drone in range(nod):
         # wps_copy.remove
         elements = del_drone_selection(wps_copy, sensors_sel)
-        single_sol = MRE(elements, reward, weight, distance, hovering, E, S, False)
+        single_sol = MRE(elements, reward, weight, distance, hovering, E, S, debug)
+        print("\n#drone: ", drone, " reward: ", single_sol[0])
+        print("#drone: ", drone, " storage: ", single_sol[1])
+        print("#drone: ", drone, " energy: ", single_sol[2])
+        print("#drone: ", drone, " selection: ", single_sol[3])
+        total_profit = total_profit + single_sol[0]
+        total_storage = total_storage + single_sol[1]
+        total_energy = total_energy + single_sol[2]
+        sol[drone] = sol[drone] + single_sol[4]
+        sensors_sel = sensors_sel + single_sol[4]
+        sensors_sel.remove(0)
+        sensors_sel.remove(0)
+    return [total_profit, total_storage, total_energy, sol]
+
+# - END  -
+
+# - MRS BLOCK  -
+
+# - START -
+def multiMRS(wps, reward, weight, distance, hovering, E, S, nod, debug=False):
+    wps_copy = copy.deepcopy(wps)
+    wps_copy = wps_copy[0:len(weight)]
+    set_wps = [(wps_copy[p][1], p) for p in range(len(weight))]
+    sol = []
+    for i in range(nod):
+        sol.append([])
+
+    total_energy = 0
+    total_profit = 0
+    total_storage = 0
+
+    sensors_sel = []
+    for drone in range(nod):
+        # wps_copy.remove
+        elements = del_drone_selection(wps_copy, sensors_sel)
+        single_sol = MRS(elements, reward, weight, distance, hovering, E, S, debug)
         print("\n#drone: ", drone, " reward: ", single_sol[0])
         print("#drone: ", drone, " storage: ", single_sol[1])
         print("#drone: ", drone, " energy: ", single_sol[2])
