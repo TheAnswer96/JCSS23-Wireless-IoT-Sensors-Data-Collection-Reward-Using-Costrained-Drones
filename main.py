@@ -1,13 +1,8 @@
 # IMPORTS
-import inputs as ipp
 import time
-import ILP as ilp
-import pickle
-import algorithms as alg
 import sympy as sp
-import tests as ts
-import numpy as np
-
+import algorithms as alg
+import inputs as ipp
 
 # - MAIN -
 if __name__ == '__main__':
@@ -42,15 +37,17 @@ if __name__ == '__main__':
     # #         print("EDGE ", i, " , ",j," cost: ",a[5][i][j])
     #output = ilp.opt_ilp_cplex(a[0], 2500000, 44, a[3], a[4], a[5], a[6], True)
     #output = ilp.opt_multi_ilp_cplex(a[0], 126000, 1000, a[3], a[4], a[5], a[6], 2, True)
-    # output = ilp.opt_ilp_cplex(a[0], 2500000, 16000, a[3], a[4], a[5], a[6],  True)
-    # output = alg.RSEO(a[0], a[3], a[4], a[5], a[6], E[0], S[0], True)
+    #output = ilp.opt_ilp_cplex(a[0], 2500000, 16000, a[3], a[4], a[5], a[6],  True)
+    #output = alg.RSEO(a[0], a[3], a[4], a[5], a[6], E[0], S[0], True)
     # print(output)
+    output = alg.multiRSEO(a[0], a[3], a[4], a[5], a[6], 2500000, 16000, 2, True)
+    print(output)
     #output = alg.multiMRE(a[0], a[3], a[4], a[5], a[6], 2500000, 1000,3, False)
     #print(output)
-    output = alg.MRS(a[0], a[3], a[4], a[5], a[6], 2500000, 1000, True)
-    print("1. ",output)
-    output = alg.multiMRS(a[0], a[3], a[4], a[5], a[6], 2500000, 1000, 2, True)
-    print("2. ",output)
+    #output = alg.MRS(a[0], a[3], a[4], a[5], a[6], 2500000, 1000, True)
+    #print("1. ",output)
+    #output = alg.multiMRS(a[0], a[3], a[4], a[5], a[6], 2500000, 1000, 2, True)
+    #print("2. ",output)
     #ts.exaustive_test(False)
     # ts.compact_csv_plot_reward(False)
     # #ts.compact_csv_plot_ratio(False)
