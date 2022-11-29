@@ -40,7 +40,7 @@ if __name__ == '__main__':
     #output = ilp.opt_ilp_cplex(a[0], 2500000, 16000, a[3], a[4], a[5], a[6],  True)
     #output = alg.RSEO(a[0], a[3], a[4], a[5], a[6], E[0], S[0], True)
     # print(output)
-    output = alg.multiRSEO(a[0], a[3], a[4], a[5], a[6], 2500000, 16000, 2, True)
+    output = alg.multiRSEO(a[0], a[3], a[4], a[5], a[6], 250000, 4518, 2, True, True)
     print(output)
     #output = alg.multiMRE(a[0], a[3], a[4], a[5], a[6], 2500000, 1000,3, False)
     #print(output)

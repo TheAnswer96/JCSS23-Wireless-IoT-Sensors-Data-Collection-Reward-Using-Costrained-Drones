@@ -1,7 +1,9 @@
 # IMPORTS
 from mknapsack import solve_multiple_knapsack
+import mknapsack
 import numpy as np
 import networkx as nx
+import random as rnd
 from utils import *
 
 
@@ -280,48 +282,70 @@ def multiMRS(wps, reward, weight, distance, hovering, E, S, nod, debug=False):
 
 # - START -
 
-def multiRSEO(wps, reward, weight, distance, hovering, E, S, nod, debug=False):
+
+def multiRSEO(wps, reward, weight, distance, hovering, E, S, nod, set_cover_reduction=False, debug=False):
     set_wps = [(wps[p][1], p) for p in range(len(wps))]
     set_wps = np.array(set_wps)
     weights = np.array(weight)
     rewards = np.array(reward)
+    trivial_storage = weights.sum()
     N = len(rewards)
+    capacities = []
+    for i in range(nod):
+        capacities.append(S)
+    if debug:
+        print("RSEO with Energy: ", E, " Storage: ", S, " #Sensors: ", N, "#Drones: ", nod)
+        print()
+    if trivial_storage > S:
+        res = solve_multiple_knapsack(rewards[1:], weights[1:], capacities, method='mthm')
+    else:
+        rnd.seed(2)
+        res = rnd.choices(range(1, nod+1), k=N-1)
+    sol = parse_mkp_sol(res, weights, rewards, nod)
 
     if debug:
-        print("RSEO with Energy: ", E, " Storage: ", S, " #Sensors: ", N)
-        print()
-    res = solve_multiple_knapsack(rewards, weights, [S, S], method='mthm')
-    print(res)
-    exit()
-    knapsack = APX_1_2_KP_algorithm(weights, rewards, S)
-    if debug:
         print("KNAPSACK SOL: ")
-        print("STORAGE: ", knapsack[2], " REWARD: ", knapsack[1])
-        for item in knapsack[0]:
-            print("- element: ", item, " r: ", rewards[item], " w: ", weights[item])
-    cover_index, conver_set = set_cover(knapsack[0], set_wps)
-    if debug:
+        print("STORAGE: ", sol[1], " REWARD: ", sol[0])
+        for item in sol[2]:
+            print("- Drone: ", item[2], " r: ", item[0], " w: ", item[1])
+    drone_sol = []
+    if set_cover_reduction:
+        for drone in range(nod):
+            cover_index, cover_set = set_cover(set(sol[2][drone][2]), set_wps)
+            drone_sol.append([cover_index, cover_set])
+    else:
+        for drone in range(nod):
+            cover_set = []
+            for i in range(len(sol[2][drone][2])):
+                cover_set.append({sol[2][drone][2][i]})
+            drone_sol.append([sol[2][drone][2], cover_set])
+    if debug and set_cover_reduction:
         print("MIN SET COVER SOL: ")
-        for item in cover_index:
-            print("- element: ", wps[item][0], " sensors covered: ", wps[item][1])
-    G = generate_graph(cover_index, distance)
-    tsp = nx.algorithms.approximation.christofides(G, weight="weight")
-    tsp_0 = tsp_elaboration(tsp, 0)
-    energy = compute_weight_tsp(tsp_0, distance) + compute_hovering_tsp(set_wps, tsp_0, hovering)
-    if debug:
-        print("TSP: ", tsp_0)
-        print("ENERGY: ", energy, " J, REWARD: ", knapsack[1], ", STORAGE: ", knapsack[2], " MB")
-    info_wp_tsp = get_list_tsp_reward(tsp_0, set_wps, rewards)
-    info_wp_tsp.sort(key=lambda x: x[1])
-    while energy > E and len(tsp_0) > 3:
-        node = info_wp_tsp.pop(0)
-        tsp_0.remove(node[0])
-        energy = compute_weight_tsp(tsp_0, distance) + compute_hovering_tsp(set_wps, tsp_0, hovering)
-    total_profit, total_storage = get_tsp_reward_storage(tsp_0, set_wps, rewards, weights)
-    if debug:
-        print("TSP: ", tsp_0)
-        print("ENERGY: ", energy, " J, REWARD: ", total_profit, ", STORAGE: ", total_storage, " MB")
-    return [total_profit, total_storage, energy, tsp_0]
+        for drone in range(nod):
+            print("DRONE: ", drone)
+            for item in drone_sol[drone][0]:
+                print("- element: ", wps[item][0], " sensors covered: ", wps[item][1])
+
+    total_profit = 0
+    total_storage = 0
+    total_energy = 0
+    TSPs = []
+    for drone in range(nod):
+        tsp_0, energy = TSP_generation(drone_sol[drone][0], distance, hovering, set_wps)
+        if debug:
+            print("PRE PRUNING:")
+            print("TSP: ", tsp_0)
+            print("ENERGY: ", energy, " J, REWARD: ", sol[2][drone][0], ", STORAGE: ", sol[2][drone][1], " MB")
+        rcv_tsp, profit, energy, storage = TSP_recover(tsp_0, distance, rewards, weights, hovering, set_wps, E)
+        TSPs.append([rcv_tsp, profit, energy, storage])
+        total_energy = total_energy + energy
+        total_profit = total_profit + profit
+        total_storage = total_storage + storage
+        if debug:
+            print("AFTER PRUNING:")
+            print("TSP: ", rcv_tsp)
+            print("ENERGY: ", energy, " J, REWARD: ", profit, ", STORAGE: ", storage, " MB")
+    return [total_profit, total_storage, total_energy, TSPs]
 
 
 # - END -

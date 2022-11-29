@@ -3,6 +3,24 @@ import numpy as np
 import networkx as nx
 import copy
 
+def parse_mkp_sol(sol, w, r, nod):
+    tprofit = 0
+    tweight = 0
+    sol_index = []
+    for drone in range(1, nod + 1):
+        profit = 0
+        weight = 0
+        drone_sel = []
+        for index in range(len(sol)):
+            if sol[index] == drone:
+                drone_sel.append(index + 1)
+                profit = profit + r[index + 1]
+                weight = weight + w[index + 1]
+        sol_index.append([profit, weight, [0]+drone_sel])
+        tweight = tweight + weight
+        tprofit = tprofit + profit
+    return [tprofit, tweight, sol_index]
+
 def set_cover(universe, subsets):
     downsizes = []
     for e in subsets:
@@ -193,3 +211,21 @@ def del_drone_selection(elements, todel):
         elements.pop(index)
     print(elements)
     return elements
+
+def TSP_generation(sol, d, h, wps):
+    G = generate_graph(sol, d)
+    tsp = nx.algorithms.approximation.christofides(G, weight="weight")
+    tsp_0 = tsp_elaboration(tsp, 0)
+    energy = compute_weight_tsp(tsp_0, d) + compute_hovering_tsp(wps, tsp_0, h)
+    return tsp_0, energy
+
+def TSP_recover(tsp, d, r, w, h, wps, budget):
+    info_wp_tsp = get_list_tsp_reward(tsp, wps, r)
+    info_wp_tsp.sort(key=lambda x: x[1])
+    energy = compute_weight_tsp(tsp, d) + compute_hovering_tsp(wps, tsp, h)
+    while energy > budget and len(tsp) > 3:
+        node = info_wp_tsp.pop(0)
+        tsp.remove(node[0])
+        energy = compute_weight_tsp(tsp, d) + compute_hovering_tsp(wps, tsp, h)
+    total_profit, total_storage = get_tsp_reward_storage(tsp, wps, r, w)
+    return tsp, total_profit, energy, total_storage
