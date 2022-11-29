@@ -1,8 +1,9 @@
 # IMPORTS
+from mknapsack import solve_multiple_knapsack
 import numpy as np
 import networkx as nx
-import copy
 from utils import *
+
 
 # - RSEO BLOCK -
 
@@ -209,8 +210,6 @@ def multiMRE(wps, reward, weight, distance, hovering, E, S, nod, debug=False):
     wps_copy = copy.deepcopy(wps)
     wps_copy = wps_copy[0:len(weight)]
     set_wps = [(wps_copy[p][1], p) for p in range(len(weight))]
-    print(wps_copy)
-    print(set_wps)
     sol = []
     for i in range(nod):
         sol.append([])
@@ -224,10 +223,11 @@ def multiMRE(wps, reward, weight, distance, hovering, E, S, nod, debug=False):
         # wps_copy.remove
         elements = del_drone_selection(wps_copy, sensors_sel)
         single_sol = MRE(elements, reward, weight, distance, hovering, E, S, debug)
-        print("\n#drone: ", drone, " reward: ", single_sol[0])
-        print("#drone: ", drone, " storage: ", single_sol[1])
-        print("#drone: ", drone, " energy: ", single_sol[2])
-        print("#drone: ", drone, " selection: ", single_sol[3])
+        if debug:
+            print("\n#drone: ", drone, " reward: ", single_sol[0])
+            print("#drone: ", drone, " storage: ", single_sol[1])
+            print("#drone: ", drone, " energy: ", single_sol[2])
+            print("#drone: ", drone, " selection: ", single_sol[3])
         total_profit = total_profit + single_sol[0]
         total_storage = total_storage + single_sol[1]
         total_energy = total_energy + single_sol[2]
@@ -259,10 +259,11 @@ def multiMRS(wps, reward, weight, distance, hovering, E, S, nod, debug=False):
         # wps_copy.remove
         elements = del_drone_selection(wps_copy, sensors_sel)
         single_sol = MRS(elements, reward, weight, distance, hovering, E, S, debug)
-        print("\n#drone: ", drone, " reward: ", single_sol[0])
-        print("#drone: ", drone, " storage: ", single_sol[1])
-        print("#drone: ", drone, " energy: ", single_sol[2])
-        print("#drone: ", drone, " selection: ", single_sol[3])
+        if debug:
+            print("\n#drone: ", drone, " reward: ", single_sol[0])
+            print("#drone: ", drone, " storage: ", single_sol[1])
+            print("#drone: ", drone, " energy: ", single_sol[2])
+            print("#drone: ", drone, " selection: ", single_sol[3])
         total_profit = total_profit + single_sol[0]
         total_storage = total_storage + single_sol[1]
         total_energy = total_energy + single_sol[2]
@@ -279,9 +280,8 @@ def multiMRS(wps, reward, weight, distance, hovering, E, S, nod, debug=False):
 
 # - START -
 
-def multiRSEO(wps, reward, weight, distance, hovering, E, S, debug=False):
+def multiRSEO(wps, reward, weight, distance, hovering, E, S, nod, debug=False):
     set_wps = [(wps[p][1], p) for p in range(len(wps))]
-
     set_wps = np.array(set_wps)
     weights = np.array(weight)
     rewards = np.array(reward)
@@ -290,6 +290,9 @@ def multiRSEO(wps, reward, weight, distance, hovering, E, S, debug=False):
     if debug:
         print("RSEO with Energy: ", E, " Storage: ", S, " #Sensors: ", N)
         print()
+    res = solve_multiple_knapsack(rewards, weights, [S, S], method='mthm')
+    print(res)
+    exit()
     knapsack = APX_1_2_KP_algorithm(weights, rewards, S)
     if debug:
         print("KNAPSACK SOL: ")
