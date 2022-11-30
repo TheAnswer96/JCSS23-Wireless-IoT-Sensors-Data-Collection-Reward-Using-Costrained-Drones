@@ -102,7 +102,7 @@ def MRE(wps, reward, weight, distance, hovering, E, S, debug=False):
         if (compute_weight_tsp(temporary_sol, distance) + compute_hovering_tsp(wpss_set, temporary_sol,
                                                                                hovering)) <= E and total_storage + p_weight <= S:
             mre_sol_wps.append(selected[1])
-            effective_sol_sensors.append(get_sensor_from_selection(selected[1],set_wps))
+            effective_sol_sensors.append(get_sensor_from_selection(selected[1], set_wps))
             mre_sol_sensors.add(selected[0])
             total_storage = total_storage + p_weight
             total_profit = total_profit + p_reward
@@ -239,6 +239,7 @@ def multiMRE(wps, reward, weight, distance, hovering, E, S, nod, debug=False):
         sensors_sel.remove(0)
     return [total_profit, total_storage, total_energy, sol]
 
+
 # - END  -
 
 # - multiMRS BLOCK  -
@@ -275,6 +276,7 @@ def multiMRS(wps, reward, weight, distance, hovering, E, S, nod, debug=False):
         sensors_sel.remove(0)
     return [total_profit, total_storage, total_energy, sol]
 
+
 # - END  -
 
 
@@ -300,7 +302,7 @@ def multiRSEO(wps, reward, weight, distance, hovering, E, S, nod, set_cover_redu
         res = solve_multiple_knapsack(rewards[1:], weights[1:], capacities, method='mthm')
     else:
         rnd.seed(2)
-        res = rnd.choices(range(1, nod+1), k=N-1)
+        res = rnd.choices(range(1, nod + 1), k=N - 1)
     sol = parse_mkp_sol(res, weights, rewards, nod)
 
     if debug:
@@ -330,6 +332,7 @@ def multiRSEO(wps, reward, weight, distance, hovering, E, S, nod, set_cover_redu
     total_storage = 0
     total_energy = 0
     TSPs = []
+
     for drone in range(nod):
         tsp_0, energy = TSP_generation(drone_sol[drone][0], distance, hovering, set_wps)
         if debug:
@@ -349,3 +352,51 @@ def multiRSEO(wps, reward, weight, distance, hovering, E, S, nod, set_cover_redu
 
 
 # - END -
+
+def APX_partion(wps, reward, weight, distance, hovering, E, S, nod, strategy=0, debug=False):
+    set_wps = [(wps[p][1], p) for p in range(len(wps))]
+    idxs, sensors = wpstolist(wps)
+    G = generate_graph(idxs[:len(reward)], distance)
+    MST = nx.minimum_spanning_tree(G)
+    if strategy == 0:
+        traversal = list(nx.bfs_edges(MST, source=0))
+    else:
+        traversal = list(nx.dfs_edges(MST, source=0))
+    unpacked = unpack_traversal(traversal)
+    if debug:
+        print("DFS: ", strategy, "BFS: ", (strategy + 1) % 2)
+        print(traversal)
+        print("VISIT UNPACKED:")
+        print(unpacked)
+    unpacked = unpacked[1:]
+
+    partition = []
+    partitions = []
+    total_profit = 0
+    total_storage = 0
+    total_energy = 0
+    profit = 0
+    storage = 0
+    energy = 0
+    while unpacked != []:
+        curr = unpacked.pop(0)
+        feasible, param = is_feasible_partion([0] + partition + [curr, 0], set_wps, distance, hovering, weight, reward,
+                                              E, S)
+        if feasible:
+            partition.append(curr)
+        else:
+            partition = [0] + partition + [0]
+            partitions.append([profit, energy, storage, partition])
+            partition = [curr]
+        profit = param[0]
+        energy = param[1]
+        storage = param[2]
+    partitions.sort(key=lambda x: x[0], reverse=True)
+
+    for i in range(nod):
+        total_profit = total_profit + partitions[i][0]
+        total_energy = total_energy + partitions[i][1]
+        total_storage = total_storage + partitions[i][2]
+        if debug:
+            print("Partiotion: ", i, " ", partitions[i])
+    return [total_profit, total_energy, total_storage, partitions[:nod]]

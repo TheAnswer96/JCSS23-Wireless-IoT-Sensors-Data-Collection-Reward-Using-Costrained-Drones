@@ -10,7 +10,7 @@ import pickle
 
 # - GLOBAL VARIABLES -
 N_POINTS = [10, 15, 20, 25, 50, 100, 150, 200]
-#N_POINTS = [15, 25]
+# N_POINTS = [15, 25]
 H_DRONE = [20, 40]  # m
 RAY_DRONE = 50  # m
 E = [2500000, 5000000, 10000000]  # J
@@ -25,13 +25,14 @@ MAX_REWARD = 10
 ITERATIONS = 13
 MAX_DOWNLOAD_E = (WEIGHTS[1] / GAMMA) * BETA
 # MAX_DISTANCE = (E[0] - MAX_DOWNLOAD_E) / alfa
-MAX_DISTANCE = 5000
-
+MAX_DISTANCE = 500
 
 # - INPUT FUNCTIONS -
 
 # - START -
 np.random.seed(0)
+
+
 def build_circle(sensor, height):
     global RAY_DRONE
 

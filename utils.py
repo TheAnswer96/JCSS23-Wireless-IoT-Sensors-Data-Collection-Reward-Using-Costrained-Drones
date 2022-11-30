@@ -3,6 +3,7 @@ import numpy as np
 import networkx as nx
 import copy
 
+
 def parse_mkp_sol(sol, w, r, nod):
     tprofit = 0
     tweight = 0
@@ -16,10 +17,11 @@ def parse_mkp_sol(sol, w, r, nod):
                 drone_sel.append(index + 1)
                 profit = profit + r[index + 1]
                 weight = weight + w[index + 1]
-        sol_index.append([profit, weight, [0]+drone_sel])
+        sol_index.append([profit, weight, [0] + drone_sel])
         tweight = tweight + weight
         tprofit = tprofit + profit
     return [tprofit, tweight, sol_index]
+
 
 def set_cover(universe, subsets):
     downsizes = []
@@ -194,12 +196,14 @@ def update_sets(inserted, wps):
         wps.remove(e)
     return wps
 
+
 def get_sensor_from_selection(relative_pos, set_wp):
     index = 0
     for e in set_wp:
         if e[1] == relative_pos:
             index = list(e[0])[0]
     return index
+
 
 def del_drone_selection(elements, todel):
     index_to_del = []
@@ -212,12 +216,14 @@ def del_drone_selection(elements, todel):
     print(elements)
     return elements
 
+
 def TSP_generation(sol, d, h, wps):
     G = generate_graph(sol, d)
     tsp = nx.algorithms.approximation.christofides(G, weight="weight")
     tsp_0 = tsp_elaboration(tsp, 0)
     energy = compute_weight_tsp(tsp_0, d) + compute_hovering_tsp(wps, tsp_0, h)
     return tsp_0, energy
+
 
 def TSP_recover(tsp, d, r, w, h, wps, budget):
     info_wp_tsp = get_list_tsp_reward(tsp, wps, r)
@@ -229,3 +235,38 @@ def TSP_recover(tsp, d, r, w, h, wps, budget):
         energy = compute_weight_tsp(tsp, d) + compute_hovering_tsp(wps, tsp, h)
     total_profit, total_storage = get_tsp_reward_storage(tsp, wps, r, w)
     return tsp, total_profit, energy, total_storage
+
+
+def wpstolist(wps):
+    set_wps = [(wps[p][1], p) for p in range(len(wps))]
+    index = []
+    sensors = []
+    for wp in set_wps:
+        index.append(wp[1])
+        sensors.append(list(wp[0]))
+    return index, sensors
+
+
+def unpack_traversal(traversal):
+    visited = set()
+    path = []
+    for edge in traversal:
+        if not edge[0] in visited:
+            path.append(edge[0])
+            visited.add(edge[0])
+        if not edge[1] in visited:
+            path.append(edge[1])
+            visited.add(edge[1])
+    return path
+
+
+def is_feasible_partion(partition, wps, d, h, w, r, E, S, verbose_output=True):
+    is_feasible = True
+    energy = compute_weight_tsp(partition, d) + compute_hovering_tsp(wps, partition, h)
+    profit, storage = get_tsp_reward_storage(partition, wps, r, w)
+    if energy > E or storage > S:
+        is_feasible = False
+    if verbose_output:
+        return is_feasible, [profit, energy, storage]
+    else:
+        return is_feasible
