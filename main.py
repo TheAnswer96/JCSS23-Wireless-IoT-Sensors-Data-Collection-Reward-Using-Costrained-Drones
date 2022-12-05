@@ -2,7 +2,9 @@
 import time
 import sympy as sp
 import algorithms as alg
+import numpy as np
 import inputs as ipp
+import tests as ts
 
 # - MAIN -
 if __name__ == '__main__':
@@ -26,12 +28,16 @@ if __name__ == '__main__':
     #                                          100000.50813822],
     #                                         [100000.37307297, 100000.51446583, 0.63489234, 100000.50813822,
     #                                          0.]]), np.array([0., 75288.88888889, 34611.11111111])]
-    for i in range(len(a[0])):
-         print("WAYPOINT: ",i ," ", sp.N(a[0][i][0]))
-         for j in a[0][i][1]:
-             print("SENSOR: ",j, " STORAGE: ",a[4][j], " HOVERING: ",a[6][j], " REWARD: ", a[3][j])
-    print()
-
+    # for i in range(len(a[0])):
+    #      print("WAYPOINT: ",i ," ", sp.N(a[0][i][0]))
+    #      for j in a[0][i][1]:
+    #          print("SENSOR: ",j, " STORAGE: ",a[4][j], " HOVERING: ",a[6][j], " REWARD: ", a[3][j])
+    # print()
+    # ipp.generate_problem_instance_altitude(False, True)
+    print("SAME SCENARIO:")
+    ts.altitude_test(True, False)
+    print("DIFFERENT SCENARIO:")
+    ts.altitude_test(False, False)
     # # for i in range(len(a[0])):
     # #     for j in range(len(a[0])):
     # #         print("EDGE ", i, " , ",j," cost: ",a[5][i][j])
@@ -42,8 +48,9 @@ if __name__ == '__main__':
     # print(output)
     # output = alg.multiRSEO(a[0], a[3], a[4], a[5], a[6], 250000, 4518, 2, True, True)
     # print(output)
-    output = alg.APX_partion(a[0], a[3], a[4], a[5], a[6], 250000, 4518, 2, 0, True)
-    print(output)
+    # print(ipp.generate_problem_instance_altitude(True, True))
+    # output = alg.APX_partion(a[0], a[3], a[4], a[5], a[6], 250000, 4518, 2, 0, True)
+    # print(output)
     #output = alg.multiMRE(a[0], a[3], a[4], a[5], a[6], 2500000, 1000,3, False)
     #print(output)
     #output = alg.MRS(a[0], a[3], a[4], a[5], a[6], 2500000, 1000, True)

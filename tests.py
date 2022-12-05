@@ -73,6 +73,93 @@ def exaustive_test(zero_hover=False):
                         print(results_name, " DONE.")
     return
 
+def altitude_test(same_scenario=False, zero_hover=False):
+    N_POINTS = [10, 15, 20, 25]
+    H_DRONE = [5, 10, 15, 20, 25, 30, 35, 40, 45]
+    ZIPF_PARAM = [0, 0.8, -0.8]
+
+    E = [2500000, 5000000, 10000000]  # J
+    S = [2000, 4000, 6000, 8000, 16000, 32000]  # MB
+    for n_point in N_POINTS:
+        for theta in ZIPF_PARAM:
+            for h in H_DRONE:
+                if same_scenario:
+                    name = "problems/altitude_same_set_test/problem_alt_n" + str(n_point) + "_t" + str(theta) + "_h" + str(h) + ".dat"
+                else:
+                    name = "problems/altitude_test/problem_alt_n" + str(n_point) + "_t" + str(theta) + "_h" + str(h) + ".dat"
+                file = open(name, 'rb')
+                instances = pickle.load(file)
+                for en in E:
+                    for st in S:
+                        results = pd.DataFrame(
+                            columns=["rseo_profit", "rseo_storage", "rseo_energy", "mre_profit", "mre_storage",
+                                     "mre_energy", "mrs_profit", "mrs_storage", "mrs_energy", "opt_profit", "partition_dfs_profit", "partition_dfs_storage", "partition_dfs_energy", "partition_bfs_profit", "partition_bfs_storage", "partition_bfs_energy"])
+                        for prob in instances:
+                            print("rseo starts...")
+                            hovering = [0 for i in range(len(prob[6]))]
+                            if zero_hover:
+                                output = alg.RSEO(prob[0], prob[3], prob[4], prob[5], hovering, en, st, False)
+                            else:
+                                output = alg.RSEO(prob[0], prob[3], prob[4], prob[5], prob[6], en, st, False)
+                            out_rseo = [output[0], output[1], output[2]]
+                            print("rseo done.")
+                            print("mre stars...")
+                            if zero_hover:
+                                output = alg.MRE(prob[0], prob[3], prob[4], prob[5], hovering, en, st, False)
+                            else:
+                                output = alg.MRE(prob[0], prob[3], prob[4], prob[5], prob[6], en, st, False)
+                            out_mre = [output[0], output[1], output[2]]
+                            print("mre done.")
+                            print("mrs stars...")
+                            if zero_hover:
+                                output = alg.MRS(prob[0], prob[3], prob[4], prob[5], hovering, en, st, False)
+                            else:
+                                output = alg.MRS(prob[0], prob[3], prob[4], prob[5], prob[6], en, st, False)
+                            out_mrs = [output[0], output[1], output[2]]
+                            print("mrs done.")
+                            if n_point < 50:
+                                if zero_hover:
+                                    out_ilp = [
+                                        ilp.opt_ilp_cplex(prob[0], en, st, prob[3], prob[4], prob[5], hovering, False)]
+                                else:
+                                    out_ilp = [
+                                        ilp.opt_ilp_cplex(prob[0], en, st, prob[3], prob[4], prob[5], prob[6], False)]
+                                print("ilp done.")
+                            else:
+                                out_ilp = [0]
+                                print("ilp skipped.")
+                            print("partition with DFS stars...")
+                            if zero_hover:
+                                output = alg.APX_partion(prob[0], prob[3], prob[4], prob[5], hovering, en, st, 1, 1, False)
+                            else:
+                                output = alg.APX_partion(prob[0], prob[3], prob[4], prob[5], prob[6], en, st, 1, 1, False)
+                            out_partition_dfs = [output[0], output[2], output[1]]
+                            print("partition with DFS done.")
+                            print("partition with DFS stars...")
+                            if zero_hover:
+                                output = alg.APX_partion(prob[0], prob[3], prob[4], prob[5], hovering, en, st, 1, 0,
+                                                         False)
+                            else:
+                                output = alg.APX_partion(prob[0], prob[3], prob[4], prob[5], prob[6], en, st, 1, 0,
+                                                         False)
+                            out_partition_bfs = [output[0], output[2], output[1]]
+                            print("partition with DFS done.")
+                            to_append = out_rseo + out_mre + out_mrs + out_ilp + out_partition_dfs + out_partition_bfs
+                            a_series = pd.Series(to_append, index=results.columns)
+                            results = results.append(a_series, ignore_index=True)
+                            # results.loc[len(results)] = out_rseo + out_mre + out_mrs + out_ilp
+                        if same_scenario:
+                            results_name = "results/altitude_same_set/result_n" + str(n_point) + "_t" + str(theta) + "_h" + str(
+                            h) + "_en" + str(en) + "_st" + str(st) + ".csv"
+                        else:
+                            results_name = "results/altitude/result_n" + str(n_point) + "_t" + str(theta) + "_h" + str(
+                                h) + "_en" + str(en) + "_st" + str(st) + ".csv"
+                        if zero_hover:
+                            results_name = "results/result_zerohover_n" + str(n_point) + "_t" + str(theta) + "_h" + str(
+                                h) + "_en" + str(en) + "_st" + str(st) + ".csv"
+                        results.to_csv(results_name)
+                        print(results_name, " DONE.")
+    return
 
 def confi(data):
     from scipy.stats import t

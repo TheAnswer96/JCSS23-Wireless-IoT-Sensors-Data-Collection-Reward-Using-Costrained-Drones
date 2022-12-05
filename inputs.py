@@ -25,12 +25,12 @@ MAX_REWARD = 10
 ITERATIONS = 13
 MAX_DOWNLOAD_E = (WEIGHTS[1] / GAMMA) * BETA
 # MAX_DISTANCE = (E[0] - MAX_DOWNLOAD_E) / alfa
-MAX_DISTANCE = 500
+MAX_DISTANCE = 5000
 
 # - INPUT FUNCTIONS -
 
 # - START -
-np.random.seed(0)
+# np.random.seed(0)
 
 
 def build_circle(sensor, height):
@@ -109,13 +109,16 @@ def get_point_inside_circle(p, circle):
         return False
 
 
-def generate_3D_points(n_points, theta, height, plot=False):
+def generate_3D_points(n_points, theta, height, same_set=False, plot=False):
     list_3D_points = []
     list_circles = []
     list_2D_points = []
     list_intersection_point = []
 
-    global H_DRONE, RAY_DRONE, MAX_DISTANCE, HEIGHTS, ALFA, BETA, GAMMA
+    global RAY_DRONE, MAX_DISTANCE, HEIGHTS, ALFA, BETA, GAMMA
+
+    if same_set:
+        np.random.seed(3)
 
     xs = ((-MAX_DISTANCE) - MAX_DISTANCE) * np.random.random_sample((n_points,)) + MAX_DISTANCE
     ys = ((-MAX_DISTANCE) - MAX_DISTANCE) * np.random.random_sample((n_points,)) + MAX_DISTANCE
@@ -211,4 +214,26 @@ def generate_problem_instance(dump=False):
                     print("DUMP OF ", name, " DONE.")
     return full_instances
 
+def generate_problem_instance_altitude(same_set=False, dump=False):
+    global ZIPF_PARAM
+    N_POINTS = [10, 15, 20, 25]
+    H_DRONE = [5, 10, 15, 20, 25, 30, 35, 40, 45]
+    instances = []
+    full_instances = []
+    for n_point in N_POINTS:
+        for theta in ZIPF_PARAM:
+            for h in H_DRONE:
+                instances = []
+                for i in range(ITERATIONS):
+                    instances.append(generate_3D_points(n_point, theta, h, same_set))
+                full_instances.append(instances)
+                if dump:
+                    name = "problems/altitude_test/problem_alt_n" + str(n_point) + "_t" + str(theta) + "_h" + str(h) + ".dat"
+                    if same_set:
+                        name = "problems/altitude_same_set_test/problem_alt_n" + str(n_point) + "_t" + str(theta) + "_h" + str(
+                            h) + ".dat"
+                    outputFile = open(name, 'wb')
+                    pickle.dump(instances, outputFile)
+                    print("DUMP OF ", name, " DONE.")
+    return full_instances
 # - END -
