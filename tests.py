@@ -74,9 +74,9 @@ def exaustive_test(zero_hover=False):
     return
 
 def altitude_test(same_scenario=False, zero_hover=False):
-    N_POINTS = [10, 15, 20, 25]
+    N_POINTS = [20, 25]
     H_DRONE = [5, 10, 15, 20, 25, 30, 35, 40, 45]
-    ZIPF_PARAM = [0, 0.8, -0.8]
+    ZIPF_PARAM = [0]
 
     E = [2500000, 5000000, 10000000]  # J
     S = [2000, 4000, 6000, 8000, 16000, 32000]  # MB

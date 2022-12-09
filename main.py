@@ -34,8 +34,10 @@ if __name__ == '__main__':
     #          print("SENSOR: ",j, " STORAGE: ",a[4][j], " HOVERING: ",a[6][j], " REWARD: ", a[3][j])
     # print()
     # ipp.generate_problem_instance_altitude(False, True)
-    print("SAME SCENARIO:")
-    ts.altitude_test(True, False)
+    # alg.clustering_rseo(a[0], a[3], a[4], a[5], a[6], 2500000, 16000, 3, debug=False)
+    # exit()
+    # print("SAME SCENARIO:")
+    # ts.altitude_test(True, False)
     print("DIFFERENT SCENARIO:")
     ts.altitude_test(False, False)
     # # for i in range(len(a[0])):

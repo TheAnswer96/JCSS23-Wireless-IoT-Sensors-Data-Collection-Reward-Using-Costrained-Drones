@@ -5,6 +5,7 @@ import numpy as np
 import networkx as nx
 import random as rnd
 from utils import *
+from sklearn.cluster import KMeans
 
 
 # - RSEO BLOCK -
@@ -63,7 +64,6 @@ def MRE(wps, reward, weight, distance, hovering, E, S, debug=False):
     wpss_set = [(wps[p][1], p) for p in range(len(wps))]
     wps_copy = copy.deepcopy(wps)
     set_wps = [(wps_copy[p][1], p) for p in range(len(wps))]
-    print(set_wps)
     # set_wps = np.array(set_wps)
     weights = np.array(weight)
     rewards = np.array(reward)
@@ -384,7 +384,7 @@ def APX_partion(wps, reward, weight, distance, hovering, E, S, nod, strategy=0, 
                                               E, S)
         if feasible:
             partition.append(curr)
-        else:
+        if not feasible or unpacked == []:
             partition = [0] + partition + [0]
             partitions.append([profit, energy, storage, partition])
             partition = [curr]
@@ -400,3 +400,22 @@ def APX_partion(wps, reward, weight, distance, hovering, E, S, nod, strategy=0, 
         if debug:
             print("Partiotion: ", i, " ", partitions[i])
     return [total_profit, total_energy, total_storage, partitions[:nod]]
+
+def clustering_rseo(wps, reward, weight, distance, hovering, E, S, nod, debug=False):
+    wps_copy = copy.deepcopy(wps)
+    wps_copy = wps_copy[0:len(weight)]
+    set_wps = [(wps_copy[p][1], p) for p in range(len(weight))]
+    print(wps)
+    sol = []
+    for i in range(nod):
+        sol.append([])
+
+    total_energy = 0
+    total_profit = 0
+    total_storage = 0
+
+    sensors_sel = []
+    kmeans = KMeans(n_clusters=nod, random_state=42)
+    # kmeans.fit(points)
+    # print(kmeans.labels_)
+    return [total_profit, total_storage, total_energy, sol]

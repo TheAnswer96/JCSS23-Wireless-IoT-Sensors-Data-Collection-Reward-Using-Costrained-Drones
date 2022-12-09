@@ -78,7 +78,6 @@ def opt_ilp_cplex(wps, E, S, rewards, weights, distance, hovering, debug):
     model.add_constraint(model.sum(model.sum(weights[i] * x[i, j] for j in sensor_in_wps[i]) for i in range(1, N)) <= S)
 
     sol = model.solve(log_output=False)
-    print(sol)
     total_profit = 0
     storage = 0
     energy = 0
@@ -184,7 +183,6 @@ def opt_multi_ilp_cplex(wps, E, S, rewards, weights, distance, hovering, num_dro
     model.add_constraints(model.sum(model.sum(weights[i] * x[i, j, z] for j in sensor_in_wps[i]) for i in range(1, N)) <= S for z in range(D))
 
     sol = model.solve(log_output=False)
-    print("SOL: ", sol)
     storage = 0
     energy = 0
     total_y_selected = []
@@ -219,7 +217,6 @@ def opt_multi_ilp_cplex(wps, E, S, rewards, weights, distance, hovering, num_dro
     total_storage = 0
     total_energy = 0
     for z in range(D):
-        print("DRONE: ", z)
         energy = 0
         profit = 0
         storage = 0
@@ -237,7 +234,7 @@ def opt_multi_ilp_cplex(wps, E, S, rewards, weights, distance, hovering, num_dro
         total_energy = total_energy + energy
         total_profit = total_profit + profit
         total_storage = total_storage + storage
-        print("profit: ", profit, " storage: ", storage, " energy: ", energy)
+        # print("profit: ", profit, " storage: ", storage, " energy: ", energy)
 
 
     if debug:
