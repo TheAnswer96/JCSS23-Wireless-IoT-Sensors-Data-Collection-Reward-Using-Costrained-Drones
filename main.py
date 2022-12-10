@@ -12,7 +12,9 @@ if __name__ == '__main__':
     a = ipp.generate_3D_points(10, 0, 20)
     # file = open("app.dat", 'rb')
     # a = pickle.load(file)
-    #ipp.generate_problem_instance(True)
+
+    # ipp.generate_problem_instance(True)
+
     # exit()
     # a = [[[sp.Point2D(0, 0), {0}], [sp.Point2D(-20, -1), {1}], [sp.Point2D(-30, -0.), {2}],
     #       [sp.Point2D(-0.2, -0.05), {1, 2}], [sp.Point2D(-80., -0.7), {1, 2}]],
@@ -38,8 +40,10 @@ if __name__ == '__main__':
     # exit()
     # print("SAME SCENARIO:")
     # ts.altitude_test(True, False)
-    print("DIFFERENT SCENARIO:")
-    ts.altitude_test(False, False)
+
+    # print("DIFFERENT SCENARIO:")
+    # ts.altitude_test(False, False)
+
     # # for i in range(len(a[0])):
     # #     for j in range(len(a[0])):
     # #         print("EDGE ", i, " , ",j," cost: ",a[5][i][j])
@@ -59,7 +63,10 @@ if __name__ == '__main__':
     #print("1. ",output)
     #output = alg.multiMRS(a[0], a[3], a[4], a[5], a[6], 2500000, 1000, 2, True)
     #print("2. ",output)
-    #ts.exaustive_test(False)
+
+    print("EXHAUSTIVE SCENARIO:")
+    ts.exaustive_test(False)
+
     # ts.compact_csv_plot_reward(False)
     # #ts.compact_csv_plot_ratio(False)
     # ts.replace_zeros()

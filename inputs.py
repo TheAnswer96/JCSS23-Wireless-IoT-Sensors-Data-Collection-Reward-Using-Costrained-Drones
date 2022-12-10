@@ -11,13 +11,13 @@ import pickle
 # - GLOBAL VARIABLES -
 N_POINTS = [10, 15, 20, 25, 50, 100, 150, 200]
 # N_POINTS = [15, 25]
-H_DRONE = [20, 40]  # m
+H_DRONE = [20]  # m
 RAY_DRONE = 50  # m
 E = [2500000, 5000000, 10000000]  # J
-S = [16000, 32000]  # MB
+S = [2000, 4000, 8000, 16000]  # MB
 HEIGHTS = (-5, 5)  # m
 WEIGHTS = (100, 1000)  # MB
-ZIPF_PARAM = [0, 0.8, -0.8]
+ZIPF_PARAM = [0]
 ALFA = 200  # J/m
 BETA = 700  # J/s
 GAMMA = 9  # MB/s
@@ -208,7 +208,7 @@ def generate_problem_instance(dump=False):
                     instances.append(generate_3D_points(n_point, theta, h))
                 full_instances.append(instances)
                 if dump:
-                    name = "problems/problem_n" + str(n_point) + "_t" + str(theta) + "_h" + str(h) + ".dat"
+                    name = "problems/exaustive_test/problem_n" + str(n_point) + "_t" + str(theta) + "_h" + str(h) + ".dat"
                     outputFile = open(name, 'wb')
                     pickle.dump(instances, outputFile)
                     print("DUMP OF ", name, " DONE.")

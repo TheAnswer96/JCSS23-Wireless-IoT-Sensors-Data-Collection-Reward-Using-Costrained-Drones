@@ -14,7 +14,7 @@ import numpy as np
 # S = [16000, 32000]  # MB
 
 # FRA VARIABLES
-N_POINTS = [10, 15, 20, 25, 50, 100, 150, 200]
+N_POINTS = [25, 50, 100, 150, 200]
 H_DRONE = [20]  # m
 ZIPF_PARAM = [0]
 
@@ -25,7 +25,7 @@ def exaustive_test(zero_hover=False):
     for n_point in N_POINTS:
         for theta in ZIPF_PARAM:
             for h in H_DRONE:
-                name = "problems/problem_n" + str(n_point) + "_t" + str(theta) + "_h" + str(h) + ".dat"
+                name = "problems/exaustive_test/problem_n" + str(n_point) + "_t" + str(theta) + "_h" + str(h) + ".dat"
                 file = open(name, 'rb')
                 instances = pickle.load(file)
                 for en in E:
@@ -56,7 +56,7 @@ def exaustive_test(zero_hover=False):
                                 output = alg.MRS(prob[0], prob[3], prob[4], prob[5], prob[6], en, st, False)
                             out_mrs = [output[0], output[1], output[2]]
                             print("mrs done.")
-                            if n_point < 50:
+                            if n_point < 25:
                                 if zero_hover:
                                     out_ilp = [
                                         ilp.opt_ilp_cplex(prob[0], en, st, prob[3], prob[4], prob[5], hovering, False)]
