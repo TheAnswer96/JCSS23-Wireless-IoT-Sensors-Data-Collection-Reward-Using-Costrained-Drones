@@ -13,14 +13,26 @@ import numpy as np
 # E = [2500000, 5000000, 10000000]  # J
 # S = [16000, 32000]  # MB
 
-# FRA VARIABLES
-# (per multi-drone, ILP finisce in tempi ragionevoli con la seguente configurazione)
+# FRA VARIABLES per multi-drone
+# ILP finisce in tempi ragionevoli con la seguente configurazione (già mettere S=4GB sbuzza)
+# Da fare con tutti gli algoritmi (lo chiamerei toy_multi)
+# Vengono 3 plot (asse x: 10, 15; asse y: \rho)
 N_DRONES = [2, 3, 4]
-N_POINTS = [10, 15]
+N_POINTS = [10, 15] # se riuscissimo anche con 20 sarebbe il top [dovrei provarlo nel mio PC a PG]
 H_DRONE = [20]  # m
 ZIPF_PARAM = [0]
 E = [2500000]  # J
 S = [2000]  # MB
+
+# Per caso esaustivo multi-drone (userei E ed S bassi, giustifichiamo l'utilizzo di più droni, ma da 4 soldi...)
+# Da fare con tutti gli algoritmi tranne ILP (lo chiamerei exaustive_multi)
+# Vengono 6 plot: 2 righe (E1, S1), (E1, S2) e 3 colonne (l=2, 3, 4)
+# N_DRONES = [2, 3, 4]
+# N_POINTS = [10, 15, 20, 25, 50, 100, 150, 200]
+# H_DRONE = [20]  # m
+# ZIPF_PARAM = [0]
+# E = [2500000]  # J
+# S = [2000, 4000]  # MB
 
 
 def exaustive_multi_test(zero_hover=False):
