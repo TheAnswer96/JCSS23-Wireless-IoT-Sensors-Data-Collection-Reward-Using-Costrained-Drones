@@ -64,8 +64,11 @@ if __name__ == '__main__':
     #output = alg.multiMRS(a[0], a[3], a[4], a[5], a[6], 2500000, 1000, 2, True)
     #print("2. ",output)
 
-    print("EXHAUSTIVE SCENARIO:")
-    ts.exaustive_test(False)
+    # print("EXHAUSTIVE SCENARIO:")
+    # ts.exaustive_test(False)
+
+    print("EXHAUSTIVE MULTI SCENARIO:")
+    ts.exaustive_multi_test(False)
 
     # ts.compact_csv_plot_reward(False)
     # #ts.compact_csv_plot_ratio(False)

@@ -192,7 +192,7 @@ def opt_multi_ilp_cplex(wps, E, S, rewards, weights, distance, hovering, num_dro
         print()
 
     for z in range(D):
-        print("\nDRONE ", z)
+        # print("\nDRONE ", z)
         for l in range(M):
             selected_y = [(l, j, z) for j in range(M) if sol.get_value(y[l, j, z]) >= 0.99]
             if selected_y != []:

@@ -14,12 +14,50 @@ import numpy as np
 # S = [16000, 32000]  # MB
 
 # FRA VARIABLES
-N_POINTS = [25, 50, 100, 150, 200]
+# (per multi-drone, ILP finisce in tempi ragionevoli con la seguente configurazione)
+N_DRONES = [2, 3, 4]
+N_POINTS = [10, 15]
 H_DRONE = [20]  # m
 ZIPF_PARAM = [0]
+E = [2500000]  # J
+S = [2000]  # MB
 
-E = [2500000, 5000000, 10000000]  # J
-S = [2000, 4000, 8000, 16000]  # MB
+
+def exaustive_multi_test(zero_hover=False):
+    for n_drone in N_DRONES:
+        for n_point in N_POINTS:
+            for theta in ZIPF_PARAM:
+                for h in H_DRONE:
+                    name = "problems/exaustive_test/problem_n" + str(n_point) + "_t" + str(theta) + "_h" + str(h) + ".dat"
+                    file = open(name, 'rb')
+                    instances = pickle.load(file)
+                    for en in E:
+                        for st in S:
+                            results = pd.DataFrame(
+                                columns=["rseo_profit", "rseo_storage", "rseo_energy", "mre_profit", "mre_storage",
+                                         "mre_energy", "mrs_profit", "mrs_storage", "mrs_energy", "opt_profit"])
+                            for prob in instances:
+
+                                # print("rseo starts...")
+                                hovering = [0 for i in range(len(prob[6]))]
+                                # if zero_hover:
+                                #     output = alg.multiRSEO(prob[0], prob[3], prob[4], prob[5], hovering, en, st, n_drone, False)
+                                # else:
+                                #     output = alg.multiRSEO(prob[0], prob[3], prob[4], prob[5], prob[6], en, st, n_drone, False)
+                                # out_rseo = [output[0], output[1], output[2]]
+                                # print("rseo done.")
+
+                                print("n=%d, l=%d, E=%d, S=%d" % (n_point, n_drone, en, st))
+                                if n_point < 25:
+                                    if zero_hover:
+                                        out_ilp = [ilp.opt_multi_ilp_cplex(prob[0], en, st, prob[3], prob[4], prob[5], hovering, n_drone, False)]
+                                    else:
+                                        out_ilp = [ilp.opt_multi_ilp_cplex(prob[0], en, st, prob[3], prob[4], prob[5], prob[6], n_drone, False)]
+                                    print("ilp done.")
+                                else:
+                                    out_ilp = [0]
+                                    print("ilp skipped.")
+
 
 def exaustive_test(zero_hover=False):
     for n_point in N_POINTS:
