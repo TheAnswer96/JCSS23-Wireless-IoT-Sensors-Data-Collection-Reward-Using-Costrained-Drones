@@ -5,14 +5,21 @@ import algorithms as alg
 import ILP as ilp
 import numpy as np
 
-# - GLOBAL VARIABLES -
+# # - GLOBAL VARIABLES -
+# N_POINTS = [10, 15, 20, 25, 50, 100, 150, 200]
+# H_DRONE = [20, 40]  # m
+# ZIPF_PARAM = [0, 0.8, -0.8]
+#
+# E = [2500000, 5000000, 10000000]  # J
+# S = [16000, 32000]  # MB
+
+# FRA VARIABLES
 N_POINTS = [10, 15, 20, 25, 50, 100, 150, 200]
-H_DRONE = [20, 40]  # m
-ZIPF_PARAM = [0, 0.8, -0.8]
+H_DRONE = [20]  # m
+ZIPF_PARAM = [0]
 
 E = [2500000, 5000000, 10000000]  # J
-S = [16000, 32000]  # MB
-
+S = [2000, 4000, 8000, 16000]  # MB
 
 def exaustive_test(zero_hover=False):
     for n_point in N_POINTS:
@@ -64,22 +71,22 @@ def exaustive_test(zero_hover=False):
                             a_series = pd.Series(to_append, index=results.columns)
                             results = results.append(a_series, ignore_index=True)
                             # results.loc[len(results)] = out_rseo + out_mre + out_mrs + out_ilp
-                        results_name = "results/result_n" + str(n_point) + "_t" + str(theta) + "_h" + str(
+                        results_name = "results/exaustive/result_n" + str(n_point) + "_t" + str(theta) + "_h" + str(
                             h) + "_en" + str(en) + "_st" + str(st) + ".csv"
                         if zero_hover:
-                            results_name = "results/result_zerohover_n" + str(n_point) + "_t" + str(theta) + "_h" + str(
+                            results_name = "results/exaustive/result_zerohover_n" + str(n_point) + "_t" + str(theta) + "_h" + str(
                                 h) + "_en" + str(en) + "_st" + str(st) + ".csv"
                         results.to_csv(results_name)
                         print(results_name, " DONE.")
     return
 
 def altitude_test(same_scenario=False, zero_hover=False):
-    N_POINTS = [20, 25]
-    H_DRONE = [5, 10, 15, 20, 25, 30, 35, 40, 45]
+    N_POINTS = [20]
+    H_DRONE = [30, 35, 40, 45]
     ZIPF_PARAM = [0]
 
-    E = [2500000, 5000000, 10000000]  # J
-    S = [2000, 4000, 6000, 8000, 16000, 32000]  # MB
+    E = [2500000, 5000000]  # J
+    S = [2000, 4000, 6000, 8000]  # MB
     for n_point in N_POINTS:
         for theta in ZIPF_PARAM:
             for h in H_DRONE:
