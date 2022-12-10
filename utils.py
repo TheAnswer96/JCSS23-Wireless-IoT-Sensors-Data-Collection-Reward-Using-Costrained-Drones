@@ -213,7 +213,7 @@ def del_drone_selection(elements, todel):
     index_to_del.sort(reverse=True)
     for index in index_to_del:
         elements.pop(index)
-    print(elements)
+    # print(elements)
     return elements
 
 

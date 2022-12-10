@@ -38,25 +38,43 @@ def exaustive_multi_test(zero_hover=False):
                                          "mre_energy", "mrs_profit", "mrs_storage", "mrs_energy", "opt_profit"])
                             for prob in instances:
 
-                                # print("rseo starts...")
-                                hovering = [0 for i in range(len(prob[6]))]
-                                # if zero_hover:
-                                #     output = alg.multiRSEO(prob[0], prob[3], prob[4], prob[5], hovering, en, st, n_drone, False)
-                                # else:
-                                #     output = alg.multiRSEO(prob[0], prob[3], prob[4], prob[5], prob[6], en, st, n_drone, False)
-                                # out_rseo = [output[0], output[1], output[2]]
-                                # print("rseo done.")
-
                                 print("n=%d, l=%d, E=%d, S=%d" % (n_point, n_drone, en, st))
-                                if n_point < 25:
-                                    if zero_hover:
-                                        out_ilp = [ilp.opt_multi_ilp_cplex(prob[0], en, st, prob[3], prob[4], prob[5], hovering, n_drone, False)]
-                                    else:
-                                        out_ilp = [ilp.opt_multi_ilp_cplex(prob[0], en, st, prob[3], prob[4], prob[5], prob[6], n_drone, False)]
-                                    print("ilp done.")
+
+                                print("rseo starts...")
+                                hovering = [0 for i in range(len(prob[6]))]
+                                if zero_hover:
+                                    output = alg.multiRSEO(prob[0], prob[3], prob[4], prob[5], hovering, en, st, n_drone, False)
                                 else:
-                                    out_ilp = [0]
-                                    print("ilp skipped.")
+                                    output = alg.multiRSEO(prob[0], prob[3], prob[4], prob[5], prob[6], en, st, n_drone, False)
+                                out_rseo = [output[0], output[1], output[2]]
+                                print("rseo done.")
+
+                                print("mre stars...")
+                                if zero_hover:
+                                    output = alg.multiMRE(prob[0], prob[3], prob[4], prob[5], hovering, en, st, n_drone, False)
+                                else:
+                                    output = alg.multiMRE(prob[0], prob[3], prob[4], prob[5], prob[6], en, st, n_drone, False)
+                                out_mre = [output[0], output[1], output[2]]
+                                print("mre done.")
+
+                                print("mrs stars...")
+                                if zero_hover:
+                                    output = alg.multiMRS(prob[0], prob[3], prob[4], prob[5], hovering, en, st, n_drone, False)
+                                else:
+                                    output = alg.multiMRS(prob[0], prob[3], prob[4], prob[5], prob[6], en, st, n_drone, False)
+                                out_mrs = [output[0], output[1], output[2]]
+                                print("mrs done.")
+
+
+                                # if n_point < 25:
+                                #     if zero_hover:
+                                #         out_ilp = [ilp.opt_multi_ilp_cplex(prob[0], en, st, prob[3], prob[4], prob[5], hovering, n_drone, False)]
+                                #     else:
+                                #         out_ilp = [ilp.opt_multi_ilp_cplex(prob[0], en, st, prob[3], prob[4], prob[5], prob[6], n_drone, False)]
+                                #     print("ilp done.")
+                                # else:
+                                #     out_ilp = [0]
+                                #     print("ilp skipped.")
 
 
 def exaustive_test(zero_hover=False):
