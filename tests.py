@@ -18,7 +18,7 @@ import numpy as np
 # Da fare con tutti gli algoritmi (lo chiamerei toy_multi)
 # Vengono 3 plot (asse x: 10, 15; asse y: \rho)
 N_DRONES = [2, 3, 4]
-N_POINTS = [10, 15]  # se riuscissimo anche con 20 sarebbe il top [dovrei provarlo nel mio PC a PG]
+#N_POINTS = [10, 15]  # se riuscissimo anche con 20 sarebbe il top [dovrei provarlo nel mio PC a PG]
 H_DRONE = [20]  # m
 ZIPF_PARAM = [0]
 E = [5000000]  # J
@@ -29,7 +29,7 @@ S = [2000]  # MB
 # Da fare con tutti gli algoritmi tranne ILP (lo chiamerei exaustive_multi)
 # Vengono 6 plot: 2 righe (E1, S1), (E1, S2) e 3 colonne (l=2, 3, 4)
 # N_DRONES = [2, 3, 4]
-# N_POINTS = [10, 15, 20, 25, 50, 100, 150, 200]
+N_POINTS = [10, 15, 20, 25, 50, 100, 150, 200]
 # H_DRONE = [20]  # m
 # ZIPF_PARAM = [0]
 # E = [2500000]  # J
@@ -88,7 +88,7 @@ def exaustive_multi_test(zero_hover=False):
                                 out_mrs = [output[0], output[1], output[2]]
                                 print("mrs done.")
 
-                                if n_point < 25:
+                                if n_point < 20:
                                     if zero_hover:
                                         out_ilp = [ilp.opt_multi_ilp_cplex(prob[0], en, st, prob[3], prob[4], prob[5], hovering, n_drone, False)]
                                     else:
