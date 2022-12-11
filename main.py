@@ -4,12 +4,17 @@ import sympy as sp
 import algorithms as alg
 import numpy as np
 import inputs as ipp
+import pickle
 import tests as ts
 
 # - MAIN -
 if __name__ == '__main__':
     tic = time.perf_counter()
-    a = ipp.generate_3D_points(10, 0, 20)
+    name = "problems/exaustive_test/problem_n" + str(10) + "_t" + str(0) + "_h" + str(
+        20) + ".dat"
+    file = open(name, 'rb')
+    instances = pickle.load(file)
+    a = instances[0]
     # file = open("app.dat", 'rb')
     # a = pickle.load(file)
 
@@ -53,9 +58,11 @@ if __name__ == '__main__':
     # print(output)
     # output = alg.multiRSEO(a[0], a[3], a[4], a[5], a[6], 250000, 4518, 2, True, True)
     # print(output)
-    # print(ipp.generate_problem_instance_altitude(True, True))
-    # output = alg.APX_partion(a[0], a[3], a[4], a[5], a[6], 250000, 4518, 2, 0, True)
+    # print(ipp.generate_problem_instance_altitude(True, True))4 437 403
+
+    # output = alg.APX_partion(a[0], a[3], a[4], a[5], a[6], 5000000, 2000, 2, 0, True)
     # print(output)
+    # exit()
     #output = alg.multiMRE(a[0], a[3], a[4], a[5], a[6], 2500000, 1000,3, False)
     #print(output)
     #output = alg.MRS(a[0], a[3], a[4], a[5], a[6], 2500000, 1000, True)

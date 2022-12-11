@@ -385,7 +385,7 @@ def APX_partion(wps, reward, weight, distance, hovering, E, S, nod, strategy=0, 
                                               E, S)
         if feasible:
             partition.append(curr)
-        if not feasible or unpacked == []:
+        if not feasible:
             partition = [0] + partition + [0]
             partitions.append([profit, energy, storage, partition])
             partition = [curr]
