@@ -36,8 +36,7 @@ if __name__ == '__main__':
     #          print("SENSOR: ",j, " STORAGE: ",a[4][j], " HOVERING: ",a[6][j], " REWARD: ", a[3][j])
     # print()
     # ipp.generate_problem_instance_altitude(False, True)
-    # alg.clustering_rseo(a[0], a[3], a[4], a[5], a[6], 2500000, 16000, 3, debug=False)
-    # exit()
+
     # print("SAME SCENARIO:")
     # ts.altitude_test(True, False)
 
@@ -63,6 +62,7 @@ if __name__ == '__main__':
     #print("1. ",output)
     #output = alg.multiMRS(a[0], a[3], a[4], a[5], a[6], 2500000, 1000, 2, True)
     #print("2. ",output)
+
 
     # print("EXHAUSTIVE SCENARIO:")
     # ts.exaustive_test(False)

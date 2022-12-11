@@ -5,6 +5,7 @@ import numpy as np
 import networkx as nx
 import random as rnd
 from utils import *
+import sympy as sp
 from sklearn.cluster import KMeans
 
 
@@ -401,21 +402,110 @@ def APX_partion(wps, reward, weight, distance, hovering, E, S, nod, strategy=0, 
             print("Partiotion: ", i, " ", partitions[i])
     return [total_profit, total_energy, total_storage, partitions[:nod]]
 
+
 def clustering_rseo(wps, reward, weight, distance, hovering, E, S, nod, debug=False):
     wps_copy = copy.deepcopy(wps)
     wps_copy = wps_copy[0:len(weight)]
     set_wps = [(wps_copy[p][1], p) for p in range(len(weight))]
-    print(wps)
+    points = []
+    for p in range(len(weight)):
+        x,y = wps_copy[p][0]
+        points.append((sp.N(x), sp.N(y)))
+
     sol = []
     for i in range(nod):
         sol.append([])
-
+    # print(hovering)
+    # print(distance)
+    # print(reward)
+    # print(weight)
     total_energy = 0
     total_profit = 0
     total_storage = 0
 
     sensors_sel = []
+    sensors_sel_set = []
     kmeans = KMeans(n_clusters=nod, random_state=42)
-    # kmeans.fit(points)
-    # print(kmeans.labels_)
+    kmeans.fit(points)
+
+    wps_clusterized = []
+    weight_drones = []
+    reward_drones = []
+    hovering_drones = []
+    distance_drones = []
+    sensor_dict_exachange = []
+    for drone in range(nod):
+        sensors_sel_set.append([0])
+        sensors_sel_set[drone] = set(sensors_sel_set[drone])
+        sensors_sel.append([0])
+        wps_clusterized.append([])
+        weight_drones.append([])
+        reward_drones.append([])
+        hovering_drones.append([])
+        # distance_drones.append([])
+        sensor_dict_exachange.append({})
+
+    for index in range(len(kmeans.labels_)):
+        if not index in sensors_sel[kmeans.labels_[index]]:
+            sensors_sel[kmeans.labels_[index]].append(index)
+            sensors_sel_set[kmeans.labels_[index]].add(index)
+
+    for drone in range(nod):
+        for wp in sensors_sel[drone]:
+            wps_clusterized[drone].append(wps[wp])
+            reward_drones[drone].append(reward[wp])
+            weight_drones[drone].append(weight[wp])
+            hovering_drones[drone].append(hovering[wp])
+
+    for wp in range(len(weight), len(wps)):
+        for drone in range(nod):
+            if wps[wp][1].issubset(sensors_sel_set[drone]):
+                wps_clusterized[drone].append(wps[wp])
+                sensors_sel[drone].append(wp)
+    # print(sensors_sel)
+    for i in range(len(sensors_sel)):
+        for j in range(len(sensors_sel[i])):
+            sensor_dict_exachange[i][sensors_sel[i][j]]= j
+    # print(sensor_dict_exachange)
+    # for drone in range(nod):
+    #     sub_distance = []
+    #     for l in range(len(distance)):
+    #         row = []
+    #         for k in range(len(distance[0])):
+    #             if {l}.issubset(sensors_sel_set[drone]) and {k}.issubset(sensors_sel_set[drone]):
+    #                 row.append(distance[l][k])
+    #         if row != []:
+    #             sub_distance.append(row)
+    #     distance_drones.append(sub_distance)
+    for drone in sensors_sel:
+        sub_distance = []
+        for wp1 in drone:
+            row = []
+            for wp2 in drone:
+                row.append(distance[wp1][wp2])
+            sub_distance.append(row)
+        distance_drones.append(sub_distance)
+
+    # print()
+    for wp in range(len(wps_clusterized)):
+        for index in wps_clusterized[wp][:]:
+            app = []
+            for item_set in index[1]:
+                app.append(sensor_dict_exachange[wp][item_set])
+            index[1] = set(app)
+    # print(wps_clusterized[0])
+    # print(len(distance_drones[0]), len(distance_drones[0][0]))
+    # print(wps_clusterized[1])
+    # print(len(distance_drones[1]), len(distance_drones[1][0]))
+    # print(wps_clusterized[2])
+    # print(len(distance_drones[2]), len(distance_drones[2][0]))
+
+    for drone in range(nod):
+        # print("DRONE: ", drone)
+        # print(wps_clusterized[drone])
+        partial = RSEO(wps_clusterized[drone], reward_drones[drone], weight_drones[drone], distance_drones[drone], hovering_drones[drone], E, S, False)
+        total_profit = total_profit + partial[0]
+        total_storage = total_storage + partial[1]
+        total_energy = total_energy + partial[2]
+        sol[drone] = partial
     return [total_profit, total_storage, total_energy, sol]
