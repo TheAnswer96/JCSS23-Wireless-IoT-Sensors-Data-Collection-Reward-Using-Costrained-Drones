@@ -240,6 +240,6 @@ def opt_multi_ilp_cplex(wps, E, S, rewards, weights, distance, hovering, num_dro
     if debug:
         print("\nPROFIT: ", total_profit, " STORAGE: ", total_storage, " TOTAL ENERGY: ", total_energy)
     # Add other shit if you want other fields to be returned
-    output = profit
+    output = total_profit
 
     return output
