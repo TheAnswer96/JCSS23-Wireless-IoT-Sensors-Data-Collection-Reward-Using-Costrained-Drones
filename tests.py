@@ -22,7 +22,7 @@ N_DRONES = [2, 3, 4]
 H_DRONE = [20]  # m
 ZIPF_PARAM = [0]
 E = [5000000]  # J
-S = [2000]  # MB
+S = [2000, 4000]  # MB
 
 
 # Per caso esaustivo multi-drone (userei E ed S bassi, giustifichiamo l'utilizzo di più droni, ma da 4 soldi...)
