@@ -573,8 +573,8 @@ def compact_csv_plot_reward(zero_hover=False):
 
 def compact_csv_plot_reward_multi(zero_hover=False):
     ZIPF_PARAM = [0]
-    E = [2500000, 5000000, 10000000]  # J
-    S = [2000, 4000, 8000, 16000]  # MB
+    E = [2500000, 5000000]  # J
+    S = [2000, 4000]  # MB
     H_DRONE = [20]
     N_DRONES = [2, 3, 4]
 
@@ -587,7 +587,7 @@ def compact_csv_plot_reward_multi(zero_hover=False):
                             columns=["x", "n", "rseo", "rseo_std", "rseo_conf", "mre", "mre_std", "mre_conf", "mrs",
                                      "mrs_std",
                                      "mrs_conf", "opt", "opt_std", "opt_conf", "partition_dfs", "partition_dfs_std",
-                                     "partition_dfs_conf", "partition_bfs", "partition_bfs_std", "partition_bfs_conf"])
+                                     "partition_dfs_conf", "partition_bfs", "partition_bfs_std", "partition_bfs_conf", "cluster", "cluster_std", "cluster_conf"])
                         for n_point in N_POINTS:
                             csv_name = "results/multi-exaustive/result_multi"+str(drone)+"_n" + str(n_point) + "_t" + str(theta) + "_h" + str(
                                 h) + "_en" + str(en) + "_st" + str(st) + ".csv"
@@ -612,10 +612,19 @@ def compact_csv_plot_reward_multi(zero_hover=False):
                             opt_std = csv["opt_profit"].std()
                             opt_conf = confi(1.0 * np.array(csv["opt_profit"]))
 
-                            to_append = [N_POINTS.index(n_point)] + [n_point] + [rseo_mean] + [rseo_std] + [rseo_conf] + [
-                                mre_mean] + [mre_std] + [
-                                            mre_conf] + [
-                                            mrs_mean] + [mrs_std] + [mrs_conf] + [opt_mean] + [opt_std] + [opt_conf]
+                            dfs_mean = csv["partition_dfs_profit"].mean()
+                            dfs_std = csv["partition_dfs_profit"].std()
+                            dfs_conf = confi(1.0 * np.array(csv["partition_dfs_profit"]))
+
+                            bfs_mean = csv["partition_bfs_profit"].mean()
+                            bfs_std = csv["partition_bfs_profit"].std()
+                            bfs_conf = confi(1.0 * np.array(csv["partition_bfs_profit"]))
+
+                            clust_mean = csv["rseo_clust_profit"].mean()
+                            clust_std = csv["rseo_clust_profit"].std()
+                            clust_conf = confi(1.0 * np.array(csv["rseo_clust_profit"]))
+
+                            to_append = [N_POINTS.index(n_point)] + [n_point] + [rseo_mean] + [rseo_std] + [rseo_conf] + [mre_mean] + [mre_std] + [mre_conf] + [mrs_mean] + [mrs_std] + [mrs_conf] + [opt_mean] + [opt_std] + [opt_conf] + [dfs_mean] + [dfs_std] + [dfs_conf] + [bfs_mean] + [bfs_std] + [bfs_conf] + [clust_mean] + [clust_std] + [clust_conf]
                             a_series = pd.Series(to_append, index=compact_csv.columns)
                             compact_csv = compact_csv.append(a_series, ignore_index=True)
 
