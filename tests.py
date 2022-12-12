@@ -21,7 +21,7 @@ N_DRONES = [2, 3, 4]
 #N_POINTS = [10, 15]  # se riuscissimo anche con 20 sarebbe il top [dovrei provarlo nel mio PC a PG]
 H_DRONE = [20]  # m
 ZIPF_PARAM = [0]
-E = [5000000]  # J
+E = [2500000]  # J
 S = [2000]  # MB
 
 
