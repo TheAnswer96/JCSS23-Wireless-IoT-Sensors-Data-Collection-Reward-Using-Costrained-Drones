@@ -22,7 +22,7 @@ N_DRONES = [2, 3, 4]
 H_DRONE = [20]  # m
 ZIPF_PARAM = [0]
 E = [2500000]  # J
-S = [2000]  # MB
+S = [4000]  # MB
 
 
 # Per caso esaustivo multi-drone (userei E ed S bassi, giustifichiamo l'utilizzo di più droni, ma da 4 soldi...)
@@ -88,7 +88,7 @@ def exaustive_multi_test(zero_hover=False):
                                 out_mrs = [output[0], output[1], output[2]]
                                 print("mrs done.")
 
-                                if n_point < 20:
+                                if n_point < 10:
                                     if zero_hover:
                                         out_ilp = [ilp.opt_multi_ilp_cplex(prob[0], en, st, prob[3], prob[4], prob[5], hovering, n_drone, False)]
                                     else:
