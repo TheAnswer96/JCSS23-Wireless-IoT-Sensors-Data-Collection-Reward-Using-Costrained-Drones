@@ -149,7 +149,9 @@ def exaustive_test(zero_hover=False):
                     for st in S:
                         results = pd.DataFrame(
                             columns=["rseo_profit", "rseo_storage", "rseo_energy", "mre_profit", "mre_storage",
-                                     "mre_energy", "mrs_profit", "mrs_storage", "mrs_energy", "opt_profit"])
+                                     "mre_energy", "mrs_profit", "mrs_storage", "mrs_energy", "opt_profit",
+                                     "partition_dfs_profit", "partition_dfs_storage", "partition_dfs_energy",
+                                     "partition_bfs_profit", "partition_bfs_storage", "partition_bfs_energy"])
                         for prob in instances:
                             print("rseo starts...")
                             hovering = [0 for i in range(len(prob[6]))]
@@ -184,7 +186,25 @@ def exaustive_test(zero_hover=False):
                             else:
                                 out_ilp = [0]
                                 print("ilp skipped.")
-                            to_append = out_rseo + out_mre + out_mrs + out_ilp
+                            print("partition with DFS stars...")
+                            if zero_hover:
+                                output = alg.APX_partion(prob[0], prob[3], prob[4], prob[5], hovering, en, st, 1, 1,
+                                                         False)
+                            else:
+                                output = alg.APX_partion(prob[0], prob[3], prob[4], prob[5], prob[6], en, st, 1, 1,
+                                                         False)
+                            out_partition_dfs = [output[0], output[2], output[1]]
+                            print("partition with DFS done.")
+                            print("partition with BFS stars...")
+                            if zero_hover:
+                                output = alg.APX_partion(prob[0], prob[3], prob[4], prob[5], hovering, en, st, 1, 0,
+                                                         False)
+                            else:
+                                output = alg.APX_partion(prob[0], prob[3], prob[4], prob[5], prob[6], en, st, 1, 0,
+                                                         False)
+                            out_partition_bfs = [output[0], output[2], output[1]]
+                            print("partition with BFS done.")
+                            to_append = out_rseo + out_mre + out_mrs + out_ilp + out_partition_dfs + out_partition_bfs
                             a_series = pd.Series(to_append, index=results.columns)
                             results = results.append(a_series, ignore_index=True)
                             # results.loc[len(results)] = out_rseo + out_mre + out_mrs + out_ilp
@@ -267,7 +287,7 @@ def altitude_test(same_scenario=False, zero_hover=False):
                                                          False)
                             out_partition_dfs = [output[0], output[2], output[1]]
                             print("partition with DFS done.")
-                            print("partition with DFS stars...")
+                            print("partition with BFS stars...")
                             if zero_hover:
                                 output = alg.APX_partion(prob[0], prob[3], prob[4], prob[5], hovering, en, st, 1, 0,
                                                          False)
@@ -275,7 +295,7 @@ def altitude_test(same_scenario=False, zero_hover=False):
                                 output = alg.APX_partion(prob[0], prob[3], prob[4], prob[5], prob[6], en, st, 1, 0,
                                                          False)
                             out_partition_bfs = [output[0], output[2], output[1]]
-                            print("partition with DFS done.")
+                            print("partition with BFS done.")
                             to_append = out_rseo + out_mre + out_mrs + out_ilp + out_partition_dfs + out_partition_bfs
                             a_series = pd.Series(to_append, index=results.columns)
                             results = results.append(a_series, ignore_index=True)
@@ -425,4 +445,63 @@ def replace_zeros():
                     csv['opt_std'].replace({0: "", 0.0: ""}, inplace=True)
                     csv['opt_conf'].replace({0: "", 0.0: ""}, inplace=True)
                     csv.to_csv(csv_name)
+    return
+
+
+def compact_csv_plot_ratio_altitude(zero_hover=False):
+    ZIPF_PARAM = [0]
+    E = [2500000, 5000000]  # J
+    S = [4000, 8000]  # MB
+    H_DRONE = [10, 15, 20, 25, 30, 35, 40, 45]
+
+    for theta in ZIPF_PARAM:
+        for en in E:
+            for st in S:
+                for n_point in [10, 15, 20]:
+                    compact_csv = pd.DataFrame(
+                        columns=["x", "n", "rseo", "rseo_std", "rseo_conf", "mre", "mre_std", "mre_conf", "mrs",
+                                 "mrs_std",
+                                 "mrs_conf", "opt", "opt_std", "opt_conf"])
+                    for h in H_DRONE:
+                        csv_name = "results/altitude/result_n" + str(n_point) + "_t" + str(theta) + "_h" + str(
+                            h) + "_en" + str(en) + "_st" + str(st) + ".csv"
+                        if zero_hover:
+                            csv_name = "results/altitude/result_zerohover_n" + str(n_point) + "_t" + str(theta) + "_h" + str(
+                                h) + "_en" + str(en) + "_st" + str(st) + ".csv"
+                        csv = pd.read_csv(csv_name)
+                        csv["rseo_ratio"] = csv["rseo_profit"] / csv["opt_profit"]
+                        csv["mre_ratio"] = csv["mre_profit"] / csv["opt_profit"]
+                        csv["mrs_ratio"] = csv["mrs_profit"] / csv["opt_profit"]
+                        csv["opt_ratio"] = csv["opt_profit"] / csv["opt_profit"]
+
+                        rseo_mean = csv["rseo_ratio"].mean()
+                        rseo_std = csv["rseo_ratio"].std()
+                        rseo_conf = confi(1.0 * np.array(csv["rseo_ratio"]))
+
+                        mre_mean = csv["mre_ratio"].mean()
+                        mre_std = csv["mre_ratio"].std()
+                        mre_conf = confi(1.0 * np.array(csv["mre_ratio"]))
+
+                        mrs_mean = csv["mrs_ratio"].mean()
+                        mrs_std = csv["mrs_ratio"].std()
+                        mrs_conf = confi(1.0 * np.array(csv["mrs_ratio"]))
+
+                        opt_mean = csv["opt_ratio"].mean()
+                        opt_std = csv["opt_ratio"].std()
+                        opt_conf = confi(1.0 * np.array(csv["opt_ratio"]))
+
+                        to_append = [H_DRONE.index(h) + 1] + [h] + [rseo_mean] + [rseo_std] + [
+                            rseo_conf] + [mre_mean] + [mre_std] + [
+                                        mre_conf] + [
+                                        mrs_mean] + [mrs_std] + [mrs_conf] + [opt_mean] + [opt_std] + [opt_conf]
+                        a_series = pd.Series(to_append, index=compact_csv.columns)
+                        compact_csv = compact_csv.append(a_series, ignore_index=True)
+
+                    results_name = "results/altitude/final_csv/alt_t" + str(theta) + "_n" + str(
+                        n_point) + "_en" + str(en) + "_st" + str(st) + ".csv"
+                    if zero_hover:
+                        results_name = "results/altitude/final_csv/alt_NH_ratio_t" + str(theta) + "_n" + str(
+                            n_point) + "_en" + str(en) + "_st" + str(st) + ".csv"
+                    compact_csv.to_csv(results_name)
+                    print(results_name, " DONE.")
     return
