@@ -30,7 +30,7 @@ S = [4000]  # MB
 # Vengono 6 plot: 2 righe (E1, S1), (E1, S2) e 3 colonne (l=2, 3, 4)
 # N_DRONES = [2, 3, 4]
 N_POINTS = [10, 15, 20, 25, 50, 100, 150, 200]
-N_POINTS = [25, 50]
+# N_POINTS = [25, 50]
 # H_DRONE = [20]  # m
 # ZIPF_PARAM = [0]
 # E = [2500000]  # J
@@ -439,7 +439,7 @@ def replace_zeros():
         for h in H_DRONE:
             for en in E:
                 for st in S:
-                    csv_name = "results/csv/reward/csv_t" + str(theta) + "_h" + str(
+                    csv_name = "results/multi-exaustive/final_csv" + str(theta) + "_h" + str(
                         h) + "_en" + str(en) + "_st" + str(st) + ".csv"
                     csv = pd.read_csv(csv_name)
                     csv['opt'].replace({0: "", 0.0: ""}, inplace=True)
