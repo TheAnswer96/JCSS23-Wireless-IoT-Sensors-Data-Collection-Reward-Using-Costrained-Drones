@@ -17,7 +17,7 @@ import numpy as np
 # ILP finisce in tempi ragionevoli con la seguente configurazione (già mettere S=4GB sbuzza)
 # Da fare con tutti gli algoritmi (lo chiamerei toy_multi)
 # Vengono 3 plot (asse x: 10, 15; asse y: \rho)
-N_DRONES = [4]
+N_DRONES = [2, 3, 4]
 #N_POINTS = [10, 15]  # se riuscissimo anche con 20 sarebbe il top [dovrei provarlo nel mio PC a PG]
 H_DRONE = [20]  # m
 ZIPF_PARAM = [0]

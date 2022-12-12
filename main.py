@@ -72,7 +72,7 @@ if __name__ == '__main__':
 
 
     print("EXHAUSTIVE SCENARIO:")
-    ts.exaustive_test(False)
+    # ts.exaustive_test(False)
 
     # print("EXHAUSTIVE MULTI SCENARIO:")
     ts.exaustive_multi_test(False)
