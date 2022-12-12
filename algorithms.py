@@ -381,20 +381,26 @@ def APX_partion(wps, reward, weight, distance, hovering, E, S, nod, strategy=0, 
     energy = 0
     while unpacked != []:
         curr = unpacked.pop(0)
-        feasible, param = is_feasible_partion([0] + partition + [curr, 0], set_wps, distance, hovering, weight, reward,
-                                              E, S)
+        feasible, param = is_feasible_partion([0] + partition + [curr, 0], set_wps, distance, hovering, weight, reward, E, S)
         if feasible:
             partition.append(curr)
-        if not feasible or unpacked == []:
+            profit = param[0]
+            energy = param[1]
+            storage = param[2]
+        if not feasible:
             partition = [0] + partition + [0]
             partitions.append([profit, energy, storage, partition])
             partition = [curr]
-        profit = param[0]
-        energy = param[1]
-        storage = param[2]
+            feasible, param = is_feasible_partion([0] + partition + [0], set_wps, distance, hovering, weight,reward, E, S)
+            profit = param[0]
+            energy = param[1]
+            storage = param[2]
+            if unpacked == []:
+                partitions.append([profit, energy, storage, [0] + partition + [0]])
+
     partitions.sort(key=lambda x: x[0], reverse=True)
 
-    for i in range(nod):
+    for i in range(len(partitions)):
         total_profit = total_profit + partitions[i][0]
         total_energy = total_energy + partitions[i][1]
         total_storage = total_storage + partitions[i][2]
