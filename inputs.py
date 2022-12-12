@@ -130,6 +130,13 @@ def generate_3D_points(n_points, theta, height, same_set=False, plot=False):
     rewards = np.insert(rewards, 0, 0)
     weights = np.insert(weights, 0, 0)
 
+    # # Controllo feasibility qua
+    # for i in range(n_points):
+    #     point = sp.Point3D(xs[i], ys[i], zs[i], evaluate=False)
+    #     depot = sp.Point3D(0, 0, 0, evaluate=False)
+    #
+    #     # controllo traveling + hovering <= E
+
     for i in range(n_points):
         point = sp.Point3D(xs[i], ys[i], zs[i], evaluate=False)
         circle, point_2D = build_circle(point, height)

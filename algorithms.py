@@ -394,12 +394,12 @@ def APX_partion(wps, reward, weight, distance, hovering, E, S, nod, strategy=0, 
         storage = param[2]
     partitions.sort(key=lambda x: x[0], reverse=True)
 
-    for i in range(nod):
+    for i in range(len(partitions)):
         total_profit = total_profit + partitions[i][0]
         total_energy = total_energy + partitions[i][1]
         total_storage = total_storage + partitions[i][2]
         if debug:
-            print("Partiotion: ", i, " ", partitions[i])
+            print("Partition: ", i, " ", partitions[i])
     return [total_profit, total_energy, total_storage, partitions[:nod]]
 
 
@@ -425,7 +425,7 @@ def clustering_rseo(wps, reward, weight, distance, hovering, E, S, nod, debug=Fa
 
     sensors_sel = []
     sensors_sel_set = []
-    kmeans = KMeans(n_clusters=nod, random_state=42)
+    kmeans = KMeans(n_clusters=nod, random_state=42, n_init="auto")
     kmeans.fit(points)
 
     wps_clusterized = []
