@@ -570,3 +570,60 @@ def compact_csv_plot_reward(zero_hover=False):
                     compact_csv.to_csv(results_name)
                     print(results_name, " DONE.")
     return
+
+def compact_csv_plot_reward_multi(zero_hover=False):
+    ZIPF_PARAM = [0]
+    E = [2500000, 5000000, 10000000]  # J
+    S = [2000, 4000, 8000, 16000]  # MB
+    H_DRONE = [20]
+    N_DRONES = [2, 3, 4]
+
+    for theta in ZIPF_PARAM:
+        for h in H_DRONE:
+            for en in E:
+                for st in S:
+                    for drone in N_DRONES:
+                        compact_csv = pd.DataFrame(
+                            columns=["x", "n", "rseo", "rseo_std", "rseo_conf", "mre", "mre_std", "mre_conf", "mrs",
+                                     "mrs_std",
+                                     "mrs_conf", "opt", "opt_std", "opt_conf", "partition_dfs", "partition_dfs_std",
+                                     "partition_dfs_conf", "partition_bfs", "partition_bfs_std", "partition_bfs_conf"])
+                        for n_point in N_POINTS:
+                            csv_name = "results/multi-exaustive/result_multi"+str(drone)+"_n" + str(n_point) + "_t" + str(theta) + "_h" + str(
+                                h) + "_en" + str(en) + "_st" + str(st) + ".csv"
+                            if zero_hover:
+                                csv_name = "results/multi-exaustive/result_multi"+str(drone)+"_zerohover_n" + str(n_point) + "_t" + str(theta) + "_h" + str(
+                                    h) + "_en" + str(en) + "_st" + str(st) + ".csv"
+                            csv = pd.read_csv(csv_name)
+
+                            rseo_mean = csv["rseo_profit"].mean()
+                            rseo_std = csv["rseo_profit"].std()
+                            rseo_conf = confi(1.0 * np.array(csv["rseo_profit"]))
+
+                            mre_mean = csv["mre_profit"].mean()
+                            mre_std = csv["mre_profit"].std()
+                            mre_conf = confi(1.0 * np.array(csv["mre_profit"]))
+
+                            mrs_mean = csv["mrs_profit"].mean()
+                            mrs_std = csv["mrs_profit"].std()
+                            mrs_conf = confi(1.0 * np.array(csv["mrs_profit"]))
+
+                            opt_mean = csv["opt_profit"].mean()
+                            opt_std = csv["opt_profit"].std()
+                            opt_conf = confi(1.0 * np.array(csv["opt_profit"]))
+
+                            to_append = [N_POINTS.index(n_point)] + [n_point] + [rseo_mean] + [rseo_std] + [rseo_conf] + [
+                                mre_mean] + [mre_std] + [
+                                            mre_conf] + [
+                                            mrs_mean] + [mrs_std] + [mrs_conf] + [opt_mean] + [opt_std] + [opt_conf]
+                            a_series = pd.Series(to_append, index=compact_csv.columns)
+                            compact_csv = compact_csv.append(a_series, ignore_index=True)
+
+                        results_name = "results/multi-exaustive/final_csv/ex_multi"+str(drone)+"_t" + str(theta) + "_h" + str(
+                            h) + "_en" + str(en) + "_st" + str(st) + ".csv"
+                        if zero_hover:
+                            results_name = "results/multi-exaustive/final_csv/ex_multi"+str(drone)+"_nohover_t" + str(theta) + "_h" + str(
+                                h) + "_en" + str(en) + "_st" + str(st) + ".csv"
+                        compact_csv.to_csv(results_name)
+                        print(results_name, " DONE.")
+    return
