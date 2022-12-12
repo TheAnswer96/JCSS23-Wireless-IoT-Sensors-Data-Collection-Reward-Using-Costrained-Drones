@@ -14,7 +14,7 @@ if __name__ == '__main__':
         20) + ".dat"
     file = open(name, 'rb')
     instances = pickle.load(file)
-    a = instances[0]
+    a = instances[1]
     # file = open("app.dat", 'rb')
     # a = pickle.load(file)
 
@@ -60,7 +60,7 @@ if __name__ == '__main__':
     # print(output)
     # print(ipp.generate_problem_instance_altitude(True, True))4 437 403
 
-    output = alg.APX_partion(a[0], a[3], a[4], a[5], a[6], 5000000, 2000, 4, 0, True)
+    # output = alg.APX_partion(a[0], a[3], a[4], a[5], a[6], 5000000, 2000, 2, 0, True)
     # print(output)
     # exit()
     #output = alg.multiMRE(a[0], a[3], a[4], a[5], a[6], 2500000, 1000,3, False)
@@ -71,8 +71,8 @@ if __name__ == '__main__':
     #print("2. ",output)
 
 
-    # print("EXHAUSTIVE SCENARIO:")
-    # ts.exaustive_test(False)
+    print("EXHAUSTIVE SCENARIO:")
+    ts.exaustive_test(False)
 
     # print("EXHAUSTIVE MULTI SCENARIO:")
     # ts.exaustive_multi_test(False)

@@ -399,8 +399,11 @@ def APX_partion(wps, reward, weight, distance, hovering, E, S, nod, strategy=0, 
                 partitions.append([profit, energy, storage, [0] + partition + [0]])
 
     partitions.sort(key=lambda x: x[0], reverse=True)
-
-    for i in range(len(partitions)):
+    if len(partitions) < nod:
+        stop = len(partitions)
+    else:
+        stop = nod
+    for i in range(stop):
         total_profit = total_profit + partitions[i][0]
         total_energy = total_energy + partitions[i][1]
         total_storage = total_storage + partitions[i][2]
