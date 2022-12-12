@@ -75,7 +75,7 @@ if __name__ == '__main__':
     # ts.exaustive_test(False)
 
     # print("EXHAUSTIVE MULTI SCENARIO:")
-    ts.exaustive_multi_test(False)
+    ts.compact_csv_plot_reward_multi(False)
     # ts.compact_csv_plot_ratio_altitude(False)
     # ts.exaustive_multi_test(False)
     # ts.compact_csv_plot_ratio_altitude(False)
