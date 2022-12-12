@@ -451,7 +451,7 @@ def replace_zeros():
 def compact_csv_plot_ratio_altitude(zero_hover=False):
     ZIPF_PARAM = [0]
     E = [2500000, 5000000]  # J
-    S = [4000, 8000]  # MB
+    S = [2000, 4000, 8000, 16000]  # MB
     H_DRONE = [10, 15, 20, 25, 30, 35, 40, 45]
 
     for theta in ZIPF_PARAM:
@@ -461,7 +461,7 @@ def compact_csv_plot_ratio_altitude(zero_hover=False):
                     compact_csv = pd.DataFrame(
                         columns=["x", "n", "rseo", "rseo_std", "rseo_conf", "mre", "mre_std", "mre_conf", "mrs",
                                  "mrs_std",
-                                 "mrs_conf", "opt", "opt_std", "opt_conf"])
+                                 "mrs_conf", "opt", "opt_std", "opt_conf","partition_dfs", "partition_dfs_std", "partition_dfs_conf", "partition_bfs", "partition_bfs_std", "partition_bfs_conf"])
                     for h in H_DRONE:
                         csv_name = "results/altitude/result_n" + str(n_point) + "_t" + str(theta) + "_h" + str(
                             h) + "_en" + str(en) + "_st" + str(st) + ".csv"
@@ -473,6 +473,8 @@ def compact_csv_plot_ratio_altitude(zero_hover=False):
                         csv["mre_ratio"] = csv["mre_profit"] / csv["opt_profit"]
                         csv["mrs_ratio"] = csv["mrs_profit"] / csv["opt_profit"]
                         csv["opt_ratio"] = csv["opt_profit"] / csv["opt_profit"]
+                        csv["partition_dfs_ratio"] = csv["partition_dfs_profit"] / csv["opt_profit"]
+                        csv["partition_bfs_ratio"] = csv["partition_bfs_profit"] / csv["opt_profit"]
 
                         rseo_mean = csv["rseo_ratio"].mean()
                         rseo_std = csv["rseo_ratio"].std()
@@ -490,10 +492,18 @@ def compact_csv_plot_ratio_altitude(zero_hover=False):
                         opt_std = csv["opt_ratio"].std()
                         opt_conf = confi(1.0 * np.array(csv["opt_ratio"]))
 
+                        dfs_mean = csv["partition_dfs_ratio"].mean()
+                        dfs_std = csv["partition_dfs_ratio"].std()
+                        dfs_conf = confi(1.0 * np.array(csv["partition_dfs_ratio"]))
+
+                        bfs_mean = csv["partition_bfs_ratio"].mean()
+                        bfs_std = csv["partition_bfs_ratio"].std()
+                        bfs_conf = confi(1.0 * np.array(csv["partition_bfs_ratio"]))
+
                         to_append = [H_DRONE.index(h) + 1] + [h] + [rseo_mean] + [rseo_std] + [
                             rseo_conf] + [mre_mean] + [mre_std] + [
                                         mre_conf] + [
-                                        mrs_mean] + [mrs_std] + [mrs_conf] + [opt_mean] + [opt_std] + [opt_conf]
+                                        mrs_mean] + [mrs_std] + [mrs_conf] + [opt_mean] + [opt_std] + [opt_conf] + [dfs_mean] + [dfs_std] + [dfs_conf] + [bfs_mean] + [bfs_std] + [bfs_conf]
                         a_series = pd.Series(to_append, index=compact_csv.columns)
                         compact_csv = compact_csv.append(a_series, ignore_index=True)
 
@@ -502,6 +512,61 @@ def compact_csv_plot_ratio_altitude(zero_hover=False):
                     if zero_hover:
                         results_name = "results/altitude/final_csv/alt_NH_ratio_t" + str(theta) + "_n" + str(
                             n_point) + "_en" + str(en) + "_st" + str(st) + ".csv"
+                    compact_csv.to_csv(results_name)
+                    print(results_name, " DONE.")
+    return
+
+
+def compact_csv_plot_reward(zero_hover=False):
+    ZIPF_PARAM = [0]
+    E = [2500000, 5000000, 10000000]  # J
+    S = [2000, 4000, 8000, 16000]  # MB
+    H_DRONE = [20]
+
+    for theta in ZIPF_PARAM:
+        for h in H_DRONE:
+            for en in E:
+                for st in S:
+                    compact_csv = pd.DataFrame(
+                        columns=["x", "n", "rseo", "rseo_std", "rseo_conf", "mre", "mre_std", "mre_conf", "mrs",
+                                 "mrs_std",
+                                 "mrs_conf", "opt", "opt_std", "opt_conf"])
+                    for n_point in N_POINTS:
+                        csv_name = "results/exaustive/result_n" + str(n_point) + "_t" + str(theta) + "_h" + str(
+                            h) + "_en" + str(en) + "_st" + str(st) + ".csv"
+                        if zero_hover:
+                            csv_name = "results/exaustive/result_zerohover_n" + str(n_point) + "_t" + str(theta) + "_h" + str(
+                                h) + "_en" + str(en) + "_st" + str(st) + ".csv"
+                        csv = pd.read_csv(csv_name)
+
+                        rseo_mean = csv["rseo_profit"].mean()
+                        rseo_std = csv["rseo_profit"].std()
+                        rseo_conf = confi(1.0 * np.array(csv["rseo_profit"]))
+
+                        mre_mean = csv["mre_profit"].mean()
+                        mre_std = csv["mre_profit"].std()
+                        mre_conf = confi(1.0 * np.array(csv["mre_profit"]))
+
+                        mrs_mean = csv["mrs_profit"].mean()
+                        mrs_std = csv["mrs_profit"].std()
+                        mrs_conf = confi(1.0 * np.array(csv["mrs_profit"]))
+
+                        opt_mean = csv["opt_profit"].mean()
+                        opt_std = csv["opt_profit"].std()
+                        opt_conf = confi(1.0 * np.array(csv["opt_profit"]))
+
+                        to_append = [N_POINTS.index(n_point)] + [n_point] + [rseo_mean] + [rseo_std] + [rseo_conf] + [
+                            mre_mean] + [mre_std] + [
+                                        mre_conf] + [
+                                        mrs_mean] + [mrs_std] + [mrs_conf] + [opt_mean] + [opt_std] + [opt_conf]
+                        a_series = pd.Series(to_append, index=compact_csv.columns)
+                        compact_csv = compact_csv.append(a_series, ignore_index=True)
+
+                    results_name = "results/exaustive/final_csv/ex_t" + str(theta) + "_h" + str(
+                        h) + "_en" + str(en) + "_st" + str(st) + ".csv"
+                    if zero_hover:
+                        results_name = "results/exaustive/final_csv/ex_nohover_t" + str(theta) + "_h" + str(
+                            h) + "_en" + str(en) + "_st" + str(st) + ".csv"
                     compact_csv.to_csv(results_name)
                     print(results_name, " DONE.")
     return

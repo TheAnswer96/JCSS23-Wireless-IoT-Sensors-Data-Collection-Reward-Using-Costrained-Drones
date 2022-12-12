@@ -60,7 +60,7 @@ if __name__ == '__main__':
     # print(output)
     # print(ipp.generate_problem_instance_altitude(True, True))4 437 403
 
-    # output = alg.APX_partion(a[0], a[3], a[4], a[5], a[6], 5000000, 2000, 2, 0, True)
+    output = alg.APX_partion(a[0], a[3], a[4], a[5], a[6], 5000000, 2000, 4, 0, True)
     # print(output)
     # exit()
     #output = alg.multiMRE(a[0], a[3], a[4], a[5], a[6], 2500000, 1000,3, False)
@@ -75,8 +75,14 @@ if __name__ == '__main__':
     # ts.exaustive_test(False)
 
     # print("EXHAUSTIVE MULTI SCENARIO:")
+<<<<<<< HEAD
     ts.exaustive_multi_test(False)
     # ts.compact_csv_plot_ratio_altitude(False)
+=======
+    # ts.exaustive_multi_test(False)
+    # ts.compact_csv_plot_ratio_altitude(False)
+    # ts.compact_csv_plot_reward(False)
+>>>>>>> 39259e5d3b00aaa628aa5348b5a43c15bf9d8f2c
     # ts.compact_csv_plot_reward(False)
     # #ts.compact_csv_plot_ratio(False)
     # ts.replace_zeros()
