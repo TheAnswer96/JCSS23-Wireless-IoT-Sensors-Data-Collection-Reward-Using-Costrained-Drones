@@ -15,7 +15,7 @@ import numpy as np
 
 # FRA VARIABLES per multi-drone
 N_DRONES = [4]
-N_POINTS = [10]
+N_POINTS = [10, 15, 20, 25, 50, 100, 150, 200]
 H_DRONE = [20]  # m
 ZIPF_PARAM = [0]
 E = [2500000]  # J
