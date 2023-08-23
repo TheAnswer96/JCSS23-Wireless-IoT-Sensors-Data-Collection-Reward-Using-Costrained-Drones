@@ -37,7 +37,7 @@ If you find this work useful in your research, please consider citing the follow
 ```
 @article{MDMP2023,
 	title = {Wireless IoT Sensors Data Collection Reward Maximization by Leveraging Multiple Energy- and Storage-Constrained UAVs},
-	author={Betti Sorbelli, Francesco and Navarra, Alfredo and Palazzetti, Lorenzo and Pinotti, Cristina M and Prencipe, Giuseppe},
+	author={Betti Sorbelli, Francesco and Navarra, Alfredo and Palazzetti, Lorenzo and Pinotti, Cristina M. and Prencipe, Giuseppe},
 	journal = {Journal of Computer and System Sciences},
 	volume = {--},
 	pages = {--},
