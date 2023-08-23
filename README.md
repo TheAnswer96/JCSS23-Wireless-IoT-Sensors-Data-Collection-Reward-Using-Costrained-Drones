@@ -27,7 +27,7 @@ Since MDMP is NP-hard, we devise suboptimal algorithms for single- and multiple-
 
 To get started with using the codebase and exploring the algorithms proposed in the MDMP paper:
 
-1. Clone this repository: `git clone https://github.com/yourusername/mdmp-repository.git`
+1. Clone this repository: `git clone https://github.com/TheAnswer96/JCSS.git`
 
 
 ## Citation
