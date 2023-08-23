@@ -34,7 +34,18 @@ To get started with using the codebase and exploring the algorithms proposed in 
 
 If you find this work useful in your research, please consider citing the following paper:
 
-"Francesco Betti Sorbelli, Alfredo Navarra, Lorenzo Palazzetti, Cristina M. Pinotti, and Giuseppe Prencipe. 'Wireless IoT Sensors Data Collection Reward Maximization by Leveraging Multiple Energy- and Storage-Constrained UAVs.' Journal of Computer and System Sciences, 2023."
+```
+@article{MDMP2023,
+	title = {Wireless IoT Sensors Data Collection Reward Maximization by Leveraging Multiple Energy- and Storage-Constrained UAVs},
+	author={Betti Sorbelli, Francesco and Navarra, Alfredo and Palazzetti, Lorenzo and Pinotti, Cristina M and Prencipe, Giuseppe},
+	journal = {Journal of Computer and System Sciences},
+	volume = {--},
+	pages = {--},
+	year = {2023},
+	issn = {--},
+	doi = {--},
+}
+```
 
 ## Contact
 
